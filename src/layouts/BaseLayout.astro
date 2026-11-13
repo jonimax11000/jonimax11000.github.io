@@ -257,11 +257,11 @@ const schemaGraph = {
       <div class="container header-inner">
         <a href={homePath} class="brand-link" aria-label={profile.name}>
           <span class="brand-monogram" aria-hidden="true">JS</span>
-          <span>{profile.shortName}</span>
+          <span class="brand-name">{profile.shortName}</span>
         </a>
 
-        <nav aria-label={lang === 'es' ? 'Navegación principal' : 'Primary navigation'}>
-          <ul class="nav-links">
+        <nav id="primary-nav" class="primary-nav" aria-label={lang === 'es' ? 'Navegación principal' : 'Primary navigation'}>
+          <ul id="primary-nav-list" class="nav-links" data-open="false">
             <li><a href={`${homePath}#sobre-mi`}>{t.nav.about}</a></li>
             <li><a href={`${homePath}#experiencia`}>{t.nav.experience}</a></li>
             <li><a href={`${homePath}#mejores-proyectos`}>{t.nav.featured}</a></li>
@@ -338,7 +338,7 @@ const schemaGraph = {
               <circle cx="12" cy="12" r="5"></circle>
               <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
             </svg>
-            <span id="theme-toggle-label" data-light={t.a11y.themeLight} data-dark={t.a11y.themeDark}>
+            <span id="theme-toggle-label" class="btn-label-desktop" data-light={t.a11y.themeLight} data-dark={t.a11y.themeDark}>
               {t.a11y.themeLight}
             </span>
           </button>
@@ -357,7 +357,23 @@ const schemaGraph = {
               <circle cx="12" cy="4.5" r="2.5"></circle>
               <path d="M4 9h16M12 9v6m0 0l-3.5 6M12 15l3.5 6"></path>
             </svg>
-            <span>{t.a11y.buttonLabel}</span>
+            <span class="btn-label-desktop">{t.a11y.buttonLabel}</span>
+          </button>
+
+          <!-- Mobile Navigation Toggle -->
+          <button
+            type="button"
+            id="nav-toggle-btn"
+            class="btn-control nav-toggle-btn"
+            aria-expanded="false"
+            aria-controls="primary-nav-list"
+            aria-label={lang === 'es' ? 'Abrir menú de navegación' : 'Toggle navigation menu'}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
           </button>
         </div>
       </div>
@@ -486,6 +502,22 @@ const schemaGraph = {
         const linksChk = document.getElementById('a11y-links-chk');
         const resetBtn = document.getElementById('a11y-reset-btn');
         const fontBtns = document.querySelectorAll('[data-font-btn]');
+        const navToggleBtn = document.getElementById('nav-toggle-btn');
+        const navList = document.getElementById('primary-nav-list');
+
+        if (navToggleBtn && navList) {
+          navToggleBtn.addEventListener('click', () => {
+            const isOpen = navList.getAttribute('data-open') === 'true';
+            navList.setAttribute('data-open', isOpen ? 'false' : 'true');
+            navToggleBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+          });
+          navList.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+              navList.setAttribute('data-open', 'false');
+              navToggleBtn.setAttribute('aria-expanded', 'false');
+            });
+          });
+        }
 
         function syncUIFromAttributes() {
           const currentTheme = root.getAttribute('data-theme') || 'dark';
