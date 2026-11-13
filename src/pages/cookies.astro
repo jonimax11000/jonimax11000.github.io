@@ -146,9 +146,9 @@ const description =
           <button type="button" id="clear-storage-btn" class="btn-primary">
             🗑 Borrar datos locales guardados
           </button>
-          <a href={`mailto:${profile.email}?subject=Privacidad%20y%20Cookies`} class="btn-secondary">
-            ✉ Contacto: {profile.email}
-          </a>
+          <button type="button" class="btn-secondary" data-contact-trigger data-subject="Privacidad y Cookies">
+            ✉ Contactar por correo
+          </button>
           <a href="/" class="btn-control">
             ← Volver al inicio
           </a>

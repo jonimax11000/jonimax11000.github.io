@@ -33,7 +33,7 @@ const description =
         <ul class="project-highlights" style="font-size:0.96rem;margin-bottom:0;">
           <li><strong>Titular y Responsable del Sitio Web:</strong> {profile.name} (<code>@{profile.handle}</code>)</li>
           <li><strong>Ubicación:</strong> {profile.location.es}</li>
-          <li><strong>Correo electrónico de contacto y ejercicio de derechos:</strong> <a href={`mailto:${profile.email}`} style="color:var(--accent-cyan);">{profile.email}</a></li>
+          <li><strong>Correo electrónico de contacto y ejercicio de derechos:</strong> protegido frente a bots mediante <button type="button" class="btn-control" data-contact-trigger data-subject="Consulta Legal o Privacidad" style="display:inline-flex;padding:0.2rem 0.55rem;">✉ Verificación Anti-Bot de Correo</button></li>
           <li><strong>Dominio:</strong> <code>https://jonimax11000.github.io</code> (Sitio web informativo y portfolio profesional personal sin ánimo de lucro ni venta comercial directa).</li>
         </ul>
       </div>
@@ -84,7 +84,7 @@ const description =
       <div class="card" style="margin-bottom:2rem;">
         <h2 style="font-size:1.3rem;margin:0 0 0.85rem 0;">3. Tratamiento de Datos, Alojamiento y Propiedad Intelectual</h2>
         <ul class="project-highlights" style="font-size:0.95rem;margin-bottom:0;">
-          <li><strong>Comunicaciones voluntarias por Email:</strong> El sitio no contiene formularios ni bases de datos. Si escribes voluntariamente a <code>{profile.email}</code>, tus datos se tratarán exclusivamente para responder a tu consulta profesional o laboral (base legal: consentimiento e interés precontractual) y se eliminarán cuando ya no sean necesarios o cuando lo solicites.</li>
+          <li><strong>Comunicaciones voluntarias por Email:</strong> El sitio no contiene formularios ni bases de datos. Si escribes voluntariamente al correo del titular (tras superar la verificación local anti-spam), tus datos se tratarán exclusivamente para responder a tu consulta profesional o laboral (base legal: consentimiento e interés precontractual) y se eliminarán cuando ya no sean necesarios o cuando lo solicites.</li>
           <li><strong>Alojamiento en GitHub Pages:</strong> La infraestructura estática se sirve mediante GitHub Pages (GitHub, Inc.), que procesa registros técnicos mínimos de conexión (dirección IP y cabeceras HTTP) exclusivamente por seguridad, disponibilidad y mitigación de ataques, bajo sus garantías de transferencia internacional.</li>
           <li><strong>Fuentes Tipográficas en Local (Zero Leak):</strong> Las tipografías <em>Inter</em> y <em>JetBrains Mono</em> están empaquetadas y autoalojadas dentro del propio sitio web; el navegador <strong>no realiza peticiones a servidores de terceros</strong> (como Google Fonts CDN) al visitar esta web.</li>
           <li><strong>Propiedad Intelectual y Proyectos Privados:</strong> Los contenidos, textos y diseños del portfolio pertenecen a {profile.name}. Los repositorios públicos enlazan a sus respectivas licencias en GitHub; los repositorios marcados como <em>Privado</em> muestran únicamente fichas descriptivas sin exponer código fuente ni rutas de acceso.</li>
@@ -97,9 +97,9 @@ const description =
           Para ejercer cualquier derecho de privacidad (acceso, rectificación, supresión, oposición, portabilidad o consulta legal), escribe directamente a:
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
-          <a href={`mailto:${profile.email}?subject=Consulta%20Legal%20o%20Privacidad`} class="btn-primary">
-            ✉ {profile.email}
-          </a>
+          <button type="button" class="btn-primary" data-contact-trigger data-subject="Consulta Legal o Privacidad">
+            ✉ Contactar por correo (Protegido Anti-Bot)
+          </button>
           <a href="/cookies/" class="btn-secondary">Política de Cookies</a>
           <a href="/accesibilidad/" class="btn-secondary">Accesibilidad Legal</a>
           <a href="/" class="btn-control">← Volver al inicio</a>
@@ -108,3 +108,4 @@ const description =
     </div>
   </section>
 </BaseLayout>
+

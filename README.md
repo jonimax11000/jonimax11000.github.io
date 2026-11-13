@@ -25,3 +25,4 @@ npm run dev      # Servidor de desarrollo local
 npm run build    # Compilación estática en ./dist
 npm run preview  # Previsualizar build de producción
 ```
+

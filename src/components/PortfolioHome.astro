@@ -84,13 +84,15 @@ const staticCatalogBase = lang === 'es' ? '/proyectos' : '/en/projects';
           <span class="badge badge-public">Odoo 19 ERP</span>
           <span class="badge badge-lang">Unity XR / VR</span>
         </div>
-        <a
-          href={`mailto:${profile.email}`}
+        <button
+          type="button"
           class="btn-control"
+          data-contact-trigger
+          data-subject="Contacto desde Portfolio"
           style="width:100%;justify-content:center;"
         >
-          ✉ {profile.email}
-        </a>
+          ✉ {t.contactGate.btnText}
+        </button>
       </aside>
     </div>
 

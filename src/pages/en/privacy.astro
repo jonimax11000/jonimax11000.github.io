@@ -33,7 +33,7 @@ const description =
         <ul class="project-highlights" style="font-size:0.96rem;margin-bottom:0;">
           <li><strong>Owner &amp; Data Controller:</strong> {profile.name} (<code>@{profile.handle}</code>)</li>
           <li><strong>Location:</strong> {profile.location.en}</li>
-          <li><strong>Contact Email &amp; Rights Requests:</strong> <a href={`mailto:${profile.email}`} style="color:var(--accent-cyan);">{profile.email}</a></li>
+          <li><strong>Contact Email &amp; Rights Requests:</strong> bot-protected via <button type="button" class="btn-control" data-contact-trigger data-subject="Legal or Privacy Inquiry" style="display:inline-flex;padding:0.2rem 0.55rem;">✉ Anti-Bot Email Verification</button></li>
           <li><strong>Domain:</strong> <code>https://jonimax11000.github.io</code> (Informational personal software engineering portfolio with no direct e-commerce or paid transactions).</li>
         </ul>
       </div>
@@ -84,7 +84,7 @@ const description =
       <div class="card" style="margin-bottom:2rem;">
         <h2 style="font-size:1.3rem;margin:0 0 0.85rem 0;">3. Data Processing, Hosting &amp; Intellectual Property</h2>
         <ul class="project-highlights" style="font-size:0.95rem;margin-bottom:0;">
-          <li><strong>Voluntary Email Contact:</strong> This website has no web forms or user databases. If you voluntarily email <code>{profile.email}</code>, your message is used solely to reply to your professional or recruitment inquiry (lawful basis: consent / pre-contractual steps) and deleted upon request or once no longer needed.</li>
+          <li><strong>Voluntary Email Contact:</strong> This website has no web forms or user databases. If you voluntarily email the owner (after passing the local anti-spam check), your message is used solely to reply to your professional or recruitment inquiry (lawful basis: consent / pre-contractual steps) and deleted upon request or once no longer needed.</li>
           <li><strong>GitHub Pages Hosting:</strong> Static assets are delivered via GitHub Pages (GitHub, Inc.), which may process standard technical network logs (IP address, HTTP headers) strictly for security, uptime, and DDoS mitigation.</li>
           <li><strong>Self-Hosted Local Typography (Zero External Leak):</strong> <em>Inter</em> and <em>JetBrains Mono</em> fonts are bundled and self-hosted directly within this repository; your browser makes <strong>zero requests to third-party font CDNs</strong>.</li>
           <li><strong>Intellectual Property &amp; Private Repositories:</strong> Portfolio content and design belong to {profile.name}. Public projects link to their GitHub licenses; repositories marked <em>Private</em> display descriptive metadata only, with zero source code or repository URLs exposed.</li>
@@ -97,9 +97,9 @@ const description =
           To exercise any data protection or privacy right (access, rectification, erasure, objection, portability, or legal inquiry), please contact:
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
-          <a href={`mailto:${profile.email}?subject=Legal%20or%20Privacy%20Inquiry`} class="btn-primary">
-            ✉ {profile.email}
-          </a>
+          <button type="button" class="btn-primary" data-contact-trigger data-subject="Legal or Privacy Inquiry">
+            ✉ Contact via Email (Anti-Bot Protected)
+          </button>
           <a href="/en/cookies/" class="btn-secondary">Cookie Policy</a>
           <a href="/en/accessibility/" class="btn-secondary">Legal Accessibility</a>
           <a href="/en/" class="btn-control">← Back to home</a>
@@ -108,3 +108,4 @@ const description =
     </div>
   </section>
 </BaseLayout>
+

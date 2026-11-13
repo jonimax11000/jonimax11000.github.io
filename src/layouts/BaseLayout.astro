@@ -48,6 +48,12 @@ const a11yPagePath = lang === 'es' ? '/accesibilidad/' : '/en/accessibility/';
 const cookiesPagePath = lang === 'es' ? '/cookies/' : '/en/cookies/';
 const privacyPagePath = lang === 'es' ? '/privacidad/' : '/en/privacy/';
 
+// Build-time XOR obfuscation so plain-text email never appears in static HTML (blocks scrapers)
+const xorKey = 'JSF2026';
+const obfuscatedEmailBytes = Array.from(profile.email).map(
+  (ch, idx) => ch.charCodeAt(0) ^ xorKey.charCodeAt(idx % xorKey.length)
+);
+
 // Structured Data JSON-LD (Schema.org: ProfilePage + Person + WebSite + SoftwareSourceCode ItemList)
 const schemaGraph = {
   '@context': 'https://schema.org',
@@ -80,7 +86,6 @@ const schemaGraph = {
       description: profile.tagline[lang],
       url: siteOrigin,
       image: new URL(profile.avatar, siteOrigin).toString(),
-      email: `mailto:${profile.email}`,
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Cullera, Valencia',
@@ -478,7 +483,7 @@ const schemaGraph = {
           <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
             <a href={profile.githubUrl} target="_blank" rel="noopener noreferrer" class="btn-control">GitHub</a>
             <a href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer" class="btn-control">LinkedIn</a>
-            <a href={`mailto:${profile.email}`} class="btn-control">Email</a>
+            <button type="button" class="btn-control" data-contact-trigger data-subject="Contacto Portfolio">Email</button>
             <a href={privacyPagePath} class="btn-control">{t.nav.privacy}</a>
             <a href={cookiesPagePath} class="btn-control">{t.nav.cookies}</a>
             <a href={a11yPagePath} class="btn-control">{t.nav.accessibility}</a>
@@ -492,6 +497,89 @@ const schemaGraph = {
         </div>
       </div>
     </footer>
+
+    <!-- Accessible Anti-Bot Email Gate Modal (100% Local, Zero Cookies, WCAG 2.2 AA Compliant) -->
+    <div
+      id="email-gate-modal"
+      class="a11y-backdrop"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="email-gate-title"
+      data-open="false"
+      data-bytes={JSON.stringify(obfuscatedEmailBytes)}
+      data-k={xorKey}
+    >
+      <div class="a11y-dialog" style="max-width:480px;">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1rem;">
+          <div>
+            <h2 id="email-gate-title" style="margin:0 0 0.25rem 0;font-size:1.3rem;">{t.contactGate.modalTitle}</h2>
+            <p style="margin:0;font-size:0.86rem;color:var(--text-secondary);">{t.contactGate.modalSubtitle}</p>
+          </div>
+          <button type="button" id="email-gate-close-btn" class="btn-control" aria-label={t.contactGate.closeBtn}>
+            ✕
+          </button>
+        </div>
+
+        <form id="email-gate-form" novalidate>
+          <!-- Honeypot trap invisible for humans, catches naive bots -->
+          <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+            <label for="email-gate-hp">Website</label>
+            <input type="text" id="email-gate-hp" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="a11y-group">
+            <label for="email-gate-answer" style="display:block;font-weight:700;margin-bottom:0.5rem;">
+              {t.contactGate.challengeLabel} <span id="email-gate-question" style="font-family:var(--font-mono);color:var(--accent-cyan);"></span>
+            </label>
+            <input
+              type="text"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              id="email-gate-answer"
+              class="search-input"
+              style="width:100%;min-width:0;"
+              placeholder={t.contactGate.inputPlaceholder}
+              required
+            />
+            <p
+              id="email-gate-error"
+              role="alert"
+              data-error-text={t.contactGate.errorWrong}
+              style="margin:0.55rem 0 0 0;font-size:0.86rem;color:var(--accent-amber);min-height:1.2rem;"
+            ></p>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">
+            🛡 {t.contactGate.verifyBtn}
+          </button>
+        </form>
+
+        <div id="email-gate-result" style="display:none;">
+          <p style="margin:0 0 0.75rem 0;font-size:0.92rem;color:var(--accent-emerald);font-weight:600;">
+            {t.contactGate.successLabel}
+          </p>
+          <div
+            id="email-gate-address"
+            style="font-family:var(--font-mono);font-size:1rem;padding:0.8rem 1rem;border-radius:var(--radius-sm);background:var(--bg-primary);border:1px solid var(--border-strong);margin-bottom:1rem;word-break:break-all;text-align:center;"
+          ></div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.65rem;">
+            <a id="email-gate-mailto" href="#" class="btn-primary" style="flex:1;justify-content:center;">
+              ✉ {t.contactGate.openMailBtn}
+            </a>
+            <button
+              type="button"
+              id="email-gate-copy-btn"
+              class="btn-secondary"
+              data-copied-text={t.contactGate.copiedFeedback}
+              style="flex:1;justify-content:center;"
+            >
+              📋 {t.contactGate.copyBtn}
+            </button>
+          </div>
+          <p id="email-gate-copy-status" role="status" aria-live="polite" style="margin:0.65rem 0 0 0;font-size:0.84rem;color:var(--accent-cyan);text-align:center;"></p>
+        </div>
+      </div>
+    </div>
 
     <!-- Informative Cookie & Local Storage Banner (Zero Tracking) -->
     <aside
@@ -614,7 +702,127 @@ const schemaGraph = {
           if (e.key === 'Escape' && modal && modal.getAttribute('data-open') === 'true') {
             setModal(false);
           }
+          if (e.key === 'Escape' && emailModal && emailModal.getAttribute('data-open') === 'true') {
+            closeEmailGate();
+          }
         });
+
+        // Accessible Local Anti-Bot Email Gate Controller (Zero Third-Party Requests)
+        const emailModal = document.getElementById('email-gate-modal');
+        const emailCloseBtn = document.getElementById('email-gate-close-btn');
+        const emailForm = document.getElementById('email-gate-form');
+        const emailQuestionEl = document.getElementById('email-gate-question');
+        const emailAnswerInput = document.getElementById('email-gate-answer');
+        const emailHpInput = document.getElementById('email-gate-hp');
+        const emailErrorEl = document.getElementById('email-gate-error');
+        const emailResultBox = document.getElementById('email-gate-result');
+        const emailAddressEl = document.getElementById('email-gate-address');
+        const emailMailtoEl = document.getElementById('email-gate-mailto');
+        const emailCopyBtn = document.getElementById('email-gate-copy-btn');
+        const emailCopyStatus = document.getElementById('email-gate-copy-status');
+
+        let expectedAnswer = 0;
+        let currentSubject = '';
+        let openedAtMs = 0;
+        let lastTriggerEl = null;
+
+        function decodeEmail() {
+          if (!emailModal) return '';
+          try {
+            const bytes = JSON.parse(emailModal.getAttribute('data-bytes') || '[]');
+            const k = emailModal.getAttribute('data-k') || '';
+            return bytes.map((b, i) => String.fromCharCode(b ^ k.charCodeAt(i % k.length))).join('');
+          } catch (e) {
+            return '';
+          }
+        }
+
+        function generateChallenge() {
+          const a = Math.floor(Math.random() * 8) + 2;
+          const b = Math.floor(Math.random() * 8) + 1;
+          expectedAnswer = a + b;
+          if (emailQuestionEl) emailQuestionEl.textContent = a + ' + ' + b + ' = ?';
+          if (emailAnswerInput) emailAnswerInput.value = '';
+          if (emailErrorEl) emailErrorEl.textContent = '';
+          if (emailCopyStatus) emailCopyStatus.textContent = '';
+          if (emailForm) emailForm.style.display = 'block';
+          if (emailResultBox) emailResultBox.style.display = 'none';
+        }
+
+        function openEmailGate(triggerEl, subject) {
+          if (!emailModal) return;
+          lastTriggerEl = triggerEl || null;
+          currentSubject = subject || '';
+          openedAtMs = Date.now();
+          generateChallenge();
+          emailModal.setAttribute('data-open', 'true');
+          if (emailAnswerInput) emailAnswerInput.focus();
+        }
+
+        function closeEmailGate() {
+          if (!emailModal) return;
+          emailModal.setAttribute('data-open', 'false');
+          if (lastTriggerEl && typeof lastTriggerEl.focus === 'function') {
+            lastTriggerEl.focus();
+          }
+        }
+
+        document.querySelectorAll('[data-contact-trigger]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            openEmailGate(btn, btn.getAttribute('data-subject') || '');
+          });
+        });
+
+        if (emailCloseBtn) emailCloseBtn.addEventListener('click', closeEmailGate);
+        if (emailModal) {
+          emailModal.addEventListener('click', (e) => {
+            if (e.target === emailModal) closeEmailGate();
+          });
+        }
+
+        if (emailForm) {
+          emailForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (emailHpInput && emailHpInput.value.trim() !== '') return;
+            if (Date.now() - openedAtMs < 350) return;
+
+            const userVal = parseInt((emailAnswerInput ? emailAnswerInput.value : '').trim(), 10);
+            if (userVal !== expectedAnswer) {
+              if (emailErrorEl) {
+                emailErrorEl.textContent = emailErrorEl.getAttribute('data-error-text') || 'Error';
+              }
+              if (emailAnswerInput) emailAnswerInput.focus();
+              return;
+            }
+
+            const decoded = decodeEmail();
+            if (!decoded) return;
+            const mailtoUrl = currentSubject
+              ? 'mailto:' + decoded + '?subject=' + encodeURIComponent(currentSubject)
+              : 'mailto:' + decoded;
+
+            if (emailAddressEl) emailAddressEl.textContent = decoded;
+            if (emailMailtoEl) emailMailtoEl.setAttribute('href', mailtoUrl);
+            emailForm.style.display = 'none';
+            if (emailResultBox) emailResultBox.style.display = 'block';
+            if (emailMailtoEl) emailMailtoEl.focus();
+          });
+        }
+
+        if (emailCopyBtn) {
+          emailCopyBtn.addEventListener('click', async () => {
+            const addr = emailAddressEl ? emailAddressEl.textContent || '' : '';
+            if (!addr) return;
+            try {
+              await navigator.clipboard.writeText(addr);
+              if (emailCopyStatus) {
+                emailCopyStatus.textContent = emailCopyBtn.getAttribute('data-copied-text') || 'Copied';
+              }
+            } catch (err) {
+              if (emailCopyStatus) emailCopyStatus.textContent = addr;
+            }
+          });
+        }
 
         if (cbSelect) {
           cbSelect.addEventListener('change', () => {

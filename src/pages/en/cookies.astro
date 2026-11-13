@@ -146,9 +146,9 @@ const description =
           <button type="button" id="clear-storage-btn" class="btn-primary">
             🗑 Clear saved browser data
           </button>
-          <a href={`mailto:${profile.email}?subject=Privacy%20and%20Cookies`} class="btn-secondary">
-            ✉ Contact: {profile.email}
-          </a>
+          <button type="button" class="btn-secondary" data-contact-trigger data-subject="Privacy and Cookies">
+            ✉ Contact via Email
+          </button>
           <a href="/en/" class="btn-control">
             ← Back to home
           </a>
