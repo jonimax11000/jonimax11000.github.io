@@ -1,0 +1,600 @@
+---
+import '../styles/global.css';
+import { ui, type Lang } from '../i18n/ui';
+import profile from '../data/profile.json';
+import projectsData from '../data/projects.json';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: Lang;
+  canonicalPath: string;
+  alternateEsPath: string;
+  alternateEnPath: string;
+  prevUrl?: string;
+  nextUrl?: string;
+}
+
+const {
+  title,
+  description,
+  lang,
+  canonicalPath,
+  alternateEsPath,
+  alternateEnPath,
+  prevUrl,
+  nextUrl,
+} = Astro.props;
+
+const t = ui[lang];
+const siteOrigin = 'https://jonimax11000.github.io';
+const canonicalUrl = new URL(canonicalPath, siteOrigin).toString();
+const esUrl = new URL(alternateEsPath, siteOrigin).toString();
+const enUrl = new URL(alternateEnPath, siteOrigin).toString();
+const ogImageUrl = new URL('/og-preview.svg', siteOrigin).toString();
+
+const homePath = lang === 'es' ? '/' : '/en/';
+const catalogPath = lang === 'es' ? '/proyectos/1/' : '/en/projects/1/';
+const a11yPagePath = lang === 'es' ? '/accesibilidad/' : '/en/accessibility/';
+
+// Structured Data JSON-LD (Schema.org: ProfilePage + Person + WebSite + SoftwareSourceCode ItemList)
+const schemaGraph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${siteOrigin}/#website`,
+      url: siteOrigin,
+      name: `${profile.name} — Software Engineering Portfolio`,
+      inLanguage: ['es-ES', 'en-GB'],
+      publisher: { '@id': `${siteOrigin}/#person` },
+    },
+    {
+      '@type': 'ProfilePage',
+      '@id': `${canonicalUrl}#profilepage`,
+      url: canonicalUrl,
+      name: title,
+      description: description,
+      inLanguage: t.htmlLang,
+      dateModified: projectsData.lastUpdated,
+      mainEntity: { '@id': `${siteOrigin}/#person` },
+      isPartOf: { '@id': `${siteOrigin}/#website` },
+    },
+    {
+      '@type': 'Person',
+      '@id': `${siteOrigin}/#person`,
+      name: profile.name,
+      alternateName: profile.handle,
+      jobTitle: profile.headline[lang],
+      description: profile.tagline[lang],
+      url: siteOrigin,
+      image: new URL(profile.avatar, siteOrigin).toString(),
+      email: `mailto:${profile.email}`,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Cullera, Valencia',
+        addressCountry: 'ES',
+      },
+      sameAs: [profile.githubUrl, profile.linkedinUrl],
+      knowsAbout: [
+        'Python',
+        'Odoo ERP',
+        'Artificial Intelligence',
+        'Machine Learning',
+        'Big Data',
+        'Unity 3D',
+        'Virtual Reality',
+        'Flutter',
+        'Spring Boot',
+        'Node.js',
+        'PostgreSQL',
+        'Docker',
+      ],
+      alumniOf: [
+        {
+          '@type': 'EducationalOrganization',
+          name: 'IES Jaume II El Just',
+        },
+        {
+          '@type': 'EducationalOrganization',
+          name: 'Escuela Oficial de Idiomas (EOI)',
+        },
+      ],
+    },
+    {
+      '@type': 'ItemList',
+      '@id': `${canonicalUrl}#projects-list`,
+      name: t.catalog.title,
+      numberOfItems: projectsData.projects.length,
+      itemListElement: projectsData.projects.map((p, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        item: {
+          '@type': 'SoftwareSourceCode',
+          name: p.name,
+          description: p.summary[lang],
+          programmingLanguage: p.languages,
+          keywords: p.technologies.join(', '),
+          dateModified: p.updatedAt,
+          author: { '@id': `${siteOrigin}/#person` },
+          ...(p.private || !p.url ? {} : { codeRepository: p.url }),
+        },
+      })),
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang={t.htmlLang} data-theme="dark" data-font-scale="normal" data-contrast="normal" data-colorblind="none">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={profile.name} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#0b1120" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Canonical & Internationalization (hreflang) -->
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="es-ES" href={esUrl} />
+    <link rel="alternate" hreflang="es" href={esUrl} />
+    <link rel="alternate" hreflang="en-GB" href={enUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={esUrl} />
+    {prevUrl && <link rel="prev" href={new URL(prevUrl, siteOrigin).toString()} />}
+    {nextUrl && <link rel="next" href={new URL(nextUrl, siteOrigin).toString()} />}
+
+    <!-- Favicon & Sitemap -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (LinkedIn, WhatsApp, Discord, etc. — No X/Twitter per user request) -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content={`${profile.name} · Portfolio`} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content={t.ogLocale} />
+    <meta property="og:locale:alternate" content={t.ogAlternate} />
+    <meta property="profile:first_name" content="Jonathan David" />
+    <meta property="profile:last_name" content="Signes Falcó" />
+    <meta property="profile:username" content={profile.handle} />
+
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Pre-render Theme & Accessibility Preferences (Prevents FOUC) -->
+    <script is:inline>
+      (function () {
+        try {
+          const root = document.documentElement;
+          const savedTheme = localStorage.getItem('jsf_theme');
+          if (savedTheme === 'light' || savedTheme === 'dark') {
+            root.setAttribute('data-theme', savedTheme);
+          }
+          const savedContrast = localStorage.getItem('jsf_contrast');
+          if (savedContrast) root.setAttribute('data-contrast', savedContrast);
+          const savedScale = localStorage.getItem('jsf_font_scale');
+          if (savedScale) root.setAttribute('data-font-scale', savedScale);
+          const savedCb = localStorage.getItem('jsf_colorblind');
+          if (savedCb) root.setAttribute('data-colorblind', savedCb);
+          const savedDyslexia = localStorage.getItem('jsf_dyslexia');
+          if (savedDyslexia === 'true') root.setAttribute('data-dyslexia', 'true');
+          const savedMotion = localStorage.getItem('jsf_reduce_motion');
+          if (savedMotion === 'true') root.setAttribute('data-reduce-motion', 'true');
+          const savedLinks = localStorage.getItem('jsf_underline_links');
+          if (savedLinks === 'true') root.setAttribute('data-underline-links', 'true');
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaGraph)} />
+  </head>
+
+  <body>
+    <!-- Hidden SVG Color-Blindness Assistive Matrices (EN 301 549 / Section 508 / WCAG) -->
+    <svg width="0" height="0" style="position:absolute;overflow:hidden;" aria-hidden="true" focusable="false">
+      <defs>
+        <!-- Protanopia (Red-blind correction/high-distinction matrix) -->
+        <filter id="cb-protanopia" color-interpolation-filters="sRGB">
+          <feColorMatrix
+            type="matrix"
+            values="0.567, 0.433, 0,     0, 0
+                    0.558, 0.442, 0,     0, 0
+                    0,     0.242, 0.758, 0, 0
+                    0,     0,     0,     1, 0"
+          />
+        </filter>
+        <!-- Deuteranopia (Green-blind correction/high-distinction matrix) -->
+        <filter id="cb-deuteranopia" color-interpolation-filters="sRGB">
+          <feColorMatrix
+            type="matrix"
+            values="0.625, 0.375, 0,   0, 0
+                    0.7,   0.3,   0,   0, 0
+                    0,     0.3,   0.7, 0, 0
+                    0,     0,     0,   1, 0"
+          />
+        </filter>
+        <!-- Tritanopia (Blue-Yellow deficiency matrix) -->
+        <filter id="cb-tritanopia" color-interpolation-filters="sRGB">
+          <feColorMatrix
+            type="matrix"
+            values="0.95, 0.05,  0,     0, 0
+                    0,    0.433, 0.567, 0, 0
+                    0,    0.475, 0.525, 0, 0
+                    0,    0,     0,     1, 0"
+          />
+        </filter>
+      </defs>
+    </svg>
+
+    <a href="#main-content" class="skip-link">{t.skipToContent}</a>
+
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a href={homePath} class="brand-link" aria-label={profile.name}>
+          <span class="brand-monogram" aria-hidden="true">JS</span>
+          <span>{profile.shortName}</span>
+        </a>
+
+        <nav aria-label={lang === 'es' ? 'Navegación principal' : 'Primary navigation'}>
+          <ul class="nav-links">
+            <li><a href={`${homePath}#sobre-mi`}>{t.nav.about}</a></li>
+            <li><a href={`${homePath}#experiencia`}>{t.nav.experience}</a></li>
+            <li><a href={`${homePath}#mejores-proyectos`}>{t.nav.featured}</a></li>
+            <li><a href={catalogPath}>{t.nav.allProjects}</a></li>
+            <li><a href={a11yPagePath}>{t.nav.accessibility}</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-controls">
+          <!-- Language Switcher with Authentic Spain (ES) & United Kingdom (GB) SVG Flags -->
+          {lang === 'es' ? (
+            <a
+              href={alternateEnPath}
+              class="btn-control"
+              title={t.a11y.langSwitchTitle}
+              aria-label={t.a11y.langSwitchTitle}
+              hreflang="en-GB"
+            >
+              <!-- Official Flag of Spain (Active) -->
+              <svg class="flag-svg" viewBox="0 0 60 40" aria-hidden="true">
+                <rect width="60" height="40" fill="#AA151B" />
+                <rect y="10" width="60" height="20" fill="#F1BF00" />
+                <rect x="14" y="14" width="5" height="12" rx="1" fill="#AA151B" opacity="0.85" />
+              </svg>
+              <span>ES</span>
+              <span style="opacity:0.45;" aria-hidden="true">/</span>
+              <!-- Official Union Jack Flag of the United Kingdom (Target) -->
+              <svg class="flag-svg" viewBox="0 0 60 30" aria-hidden="true">
+                <rect width="60" height="30" fill="#012169" />
+                <path d="M0,0 L60,30 M60,0 L0,30" stroke="#FFFFFF" stroke-width="6" />
+                <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="3" />
+                <path d="M30,0 V30 M0,15 H60" stroke="#FFFFFF" stroke-width="10" />
+                <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6" />
+              </svg>
+              <span style="color:var(--accent-cyan);">EN</span>
+            </a>
+          ) : (
+            <a
+              href={alternateEsPath}
+              class="btn-control"
+              title={t.a11y.langSwitchTitle}
+              aria-label={t.a11y.langSwitchTitle}
+              hreflang="es-ES"
+            >
+              <!-- Official Union Jack Flag of the United Kingdom (Active) -->
+              <svg class="flag-svg" viewBox="0 0 60 30" aria-hidden="true">
+                <rect width="60" height="30" fill="#012169" />
+                <path d="M0,0 L60,30 M60,0 L0,30" stroke="#FFFFFF" stroke-width="6" />
+                <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="3" />
+                <path d="M30,0 V30 M0,15 H60" stroke="#FFFFFF" stroke-width="10" />
+                <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6" />
+              </svg>
+              <span>EN</span>
+              <span style="opacity:0.45;" aria-hidden="true">/</span>
+              <!-- Official Flag of Spain (Target) -->
+              <svg class="flag-svg" viewBox="0 0 60 40" aria-hidden="true">
+                <rect width="60" height="40" fill="#AA151B" />
+                <rect y="10" width="60" height="20" fill="#F1BF00" />
+                <rect x="14" y="14" width="5" height="12" rx="1" fill="#AA151B" opacity="0.85" />
+              </svg>
+              <span style="color:var(--accent-cyan);">ES</span>
+            </a>
+          )}
+
+          <!-- Theme Toggle Button (Light / Dark) -->
+          <button
+            type="button"
+            id="theme-toggle-btn"
+            class="btn-control"
+            aria-label={t.a11y.themeToggleLabel}
+            title={t.a11y.themeToggleLabel}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"></circle>
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+            </svg>
+            <span id="theme-toggle-label" data-light={t.a11y.themeLight} data-dark={t.a11y.themeDark}>
+              {t.a11y.themeLight}
+            </span>
+          </button>
+
+          <!-- Universal Accessibility Hub Button -->
+          <button
+            type="button"
+            id="a11y-open-btn"
+            class="btn-control"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            aria-controls="a11y-modal"
+            title={t.a11y.buttonTitle}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <circle cx="12" cy="4.5" r="2.5"></circle>
+              <path d="M4 9h16M12 9v6m0 0l-3.5 6M12 15l3.5 6"></path>
+            </svg>
+            <span>{t.a11y.buttonLabel}</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" role="main" tabindex="-1">
+      <slot />
+    </main>
+
+    <!-- Universal Accessibility Modal (EU EN 301 549 / EAA & US ADA / Section 508) -->
+    <div
+      id="a11y-modal"
+      class="a11y-backdrop"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="a11y-modal-title"
+      data-open="false"
+    >
+      <div class="a11y-dialog">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1rem;">
+          <div>
+            <h2 id="a11y-modal-title" style="margin:0 0 0.25rem 0;font-size:1.35rem;">{t.a11y.panelTitle}</h2>
+            <p style="margin:0;font-size:0.84rem;color:var(--text-secondary);">{t.a11y.panelSubtitle}</p>
+          </div>
+          <button type="button" id="a11y-close-btn" class="btn-control" aria-label={t.a11y.closePanel}>
+            ✕
+          </button>
+        </div>
+
+        <!-- 1. Colorblind Assistance Selector -->
+        <div class="a11y-group">
+          <label for="a11y-cb-select" style="font-weight:700;display:block;margin-bottom:0.45rem;">
+            {t.a11y.colorBlindSection}
+          </label>
+          <select id="a11y-cb-select" class="select-input" style="width:100%;">
+            <option value="none">{t.a11y.cbNone}</option>
+            <option value="protanopia">{t.a11y.cbProtanopia}</option>
+            <option value="deuteranopia">{t.a11y.cbDeuteranopia}</option>
+            <option value="tritanopia">{t.a11y.cbTritanopia}</option>
+            <option value="achromatopsia">{t.a11y.cbAchromatopsia}</option>
+          </select>
+        </div>
+
+        <!-- 2. Typography Size Scale -->
+        <div class="a11y-group">
+          <span style="font-weight:700;display:block;">{t.a11y.fontSizeSection}</span>
+          <div class="a11y-options-grid" role="group" aria-label={t.a11y.fontSizeSection}>
+            <button type="button" class="btn-control" data-font-btn="normal">A · {t.a11y.fontNormal}</button>
+            <button type="button" class="btn-control" data-font-btn="large">A+ · {t.a11y.fontLarge}</button>
+            <button type="button" class="btn-control" data-font-btn="xlarge">A++ · {t.a11y.fontXLarge}</button>
+          </div>
+        </div>
+
+        <!-- 3. Contrast & Reading Toggles -->
+        <div class="a11y-group">
+          <span style="font-weight:700;display:block;margin-bottom:0.35rem;">{t.a11y.readingSection}</span>
+
+          <div class="a11y-toggle-row">
+            <label for="a11y-contrast-chk">{t.a11y.highContrast}</label>
+            <input type="checkbox" id="a11y-contrast-chk" style="width:1.2rem;height:1.2rem;" />
+          </div>
+
+          <div class="a11y-toggle-row">
+            <label for="a11y-dyslexia-chk">{t.a11y.dyslexiaFont}</label>
+            <input type="checkbox" id="a11y-dyslexia-chk" style="width:1.2rem;height:1.2rem;" />
+          </div>
+
+          <div class="a11y-toggle-row">
+            <label for="a11y-motion-chk">{t.a11y.reduceMotion}</label>
+            <input type="checkbox" id="a11y-motion-chk" style="width:1.2rem;height:1.2rem;" />
+          </div>
+
+          <div class="a11y-toggle-row">
+            <label for="a11y-links-chk">{t.a11y.underlineLinks}</label>
+            <input type="checkbox" id="a11y-links-chk" style="width:1.2rem;height:1.2rem;" />
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <button type="button" id="a11y-reset-btn" class="btn-secondary" style="justify-content:center;width:100%;">
+            ↺ {t.a11y.resetAll}
+          </button>
+          <a href={a11yPagePath} class="btn-control" style="justify-content:center;width:100%;color:var(--accent-cyan);">
+            ⚖ {t.a11y.legalLinkText}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.25rem;margin-bottom:1rem;">
+          <div>
+            <strong style="color:var(--text-primary);">{profile.name}</strong> · <span style="font-family:var(--font-mono);">@{profile.handle}</span>
+            <p style="margin:0.35rem 0 0 0;">{t.footer.syncInfo}</p>
+          </div>
+          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+            <a href={profile.githubUrl} target="_blank" rel="noopener noreferrer" class="btn-control">GitHub</a>
+            <a href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer" class="btn-control">LinkedIn</a>
+            <a href={`mailto:${profile.email}`} class="btn-control">Email</a>
+            <a href={a11yPagePath} class="btn-control">{t.nav.accessibility}</a>
+          </div>
+        </div>
+        <div style="border-top:1px solid var(--border-subtle);padding-top:1rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:0.75rem;font-size:0.82rem;color:var(--text-muted);">
+          <span>{t.footer.builtWith}</span>
+          <span>
+            {t.footer.lastSyncLabel} <time datetime={projectsData.lastUpdated}>{projectsData.lastUpdated.slice(0, 10)}</time> · © {new Date().getFullYear()} {profile.name}. {t.footer.rights}
+          </span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Accessibility & Theme Interactive Controller -->
+    <script is:inline>
+      (function () {
+        const root = document.documentElement;
+        const themeBtn = document.getElementById('theme-toggle-btn');
+        const themeLabel = document.getElementById('theme-toggle-label');
+        const modal = document.getElementById('a11y-modal');
+        const openBtn = document.getElementById('a11y-open-btn');
+        const closeBtn = document.getElementById('a11y-close-btn');
+        const cbSelect = document.getElementById('a11y-cb-select');
+        const contrastChk = document.getElementById('a11y-contrast-chk');
+        const dyslexiaChk = document.getElementById('a11y-dyslexia-chk');
+        const motionChk = document.getElementById('a11y-motion-chk');
+        const linksChk = document.getElementById('a11y-links-chk');
+        const resetBtn = document.getElementById('a11y-reset-btn');
+        const fontBtns = document.querySelectorAll('[data-font-btn]');
+
+        function syncUIFromAttributes() {
+          const currentTheme = root.getAttribute('data-theme') || 'dark';
+          if (themeLabel) {
+            themeLabel.textContent =
+              currentTheme === 'dark'
+                ? themeLabel.getAttribute('data-light')
+                : themeLabel.getAttribute('data-dark');
+          }
+          if (cbSelect) cbSelect.value = root.getAttribute('data-colorblind') || 'none';
+          if (contrastChk) contrastChk.checked = root.getAttribute('data-contrast') === 'high';
+          if (dyslexiaChk) dyslexiaChk.checked = root.getAttribute('data-dyslexia') === 'true';
+          if (motionChk) motionChk.checked = root.getAttribute('data-reduce-motion') === 'true';
+          if (linksChk) linksChk.checked = root.getAttribute('data-underline-links') === 'true';
+          const currentScale = root.getAttribute('data-font-scale') || 'normal';
+          fontBtns.forEach((btn) => {
+            const active = btn.getAttribute('data-font-btn') === currentScale;
+            btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+            btn.style.borderColor = active ? 'var(--accent-cyan)' : '';
+          });
+        }
+
+        syncUIFromAttributes();
+
+        if (themeBtn) {
+          themeBtn.addEventListener('click', () => {
+            const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', next);
+            try { localStorage.setItem('jsf_theme', next); } catch (e) {}
+            syncUIFromAttributes();
+          });
+        }
+
+        function setModal(open) {
+          if (!modal || !openBtn) return;
+          modal.setAttribute('data-open', open ? 'true' : 'false');
+          openBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+          if (open && closeBtn) closeBtn.focus();
+          if (!open) openBtn.focus();
+        }
+
+        if (openBtn) openBtn.addEventListener('click', () => setModal(true));
+        if (closeBtn) closeBtn.addEventListener('click', () => setModal(false));
+        if (modal) {
+          modal.addEventListener('click', (e) => {
+            if (e.target === modal) setModal(false);
+          });
+        }
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && modal && modal.getAttribute('data-open') === 'true') {
+            setModal(false);
+          }
+        });
+
+        if (cbSelect) {
+          cbSelect.addEventListener('change', () => {
+            root.setAttribute('data-colorblind', cbSelect.value);
+            try { localStorage.setItem('jsf_colorblind', cbSelect.value); } catch (e) {}
+          });
+        }
+
+        fontBtns.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const scale = btn.getAttribute('data-font-btn') || 'normal';
+            root.setAttribute('data-font-scale', scale);
+            try { localStorage.setItem('jsf_font_scale', scale); } catch (e) {}
+            syncUIFromAttributes();
+          });
+        });
+
+        if (contrastChk) {
+          contrastChk.addEventListener('change', () => {
+            const val = contrastChk.checked ? 'high' : 'normal';
+            root.setAttribute('data-contrast', val);
+            try { localStorage.setItem('jsf_contrast', val); } catch (e) {}
+          });
+        }
+
+        if (dyslexiaChk) {
+          dyslexiaChk.addEventListener('change', () => {
+            const val = dyslexiaChk.checked ? 'true' : 'false';
+            root.setAttribute('data-dyslexia', val);
+            try { localStorage.setItem('jsf_dyslexia', val); } catch (e) {}
+          });
+        }
+
+        if (motionChk) {
+          motionChk.addEventListener('change', () => {
+            const val = motionChk.checked ? 'true' : 'false';
+            root.setAttribute('data-reduce-motion', val);
+            try { localStorage.setItem('jsf_reduce_motion', val); } catch (e) {}
+          });
+        }
+
+        if (linksChk) {
+          linksChk.addEventListener('change', () => {
+            const val = linksChk.checked ? 'true' : 'false';
+            root.setAttribute('data-underline-links', val);
+            try { localStorage.setItem('jsf_underline-links', val); } catch (e) {}
+          });
+        }
+
+        if (resetBtn) {
+          resetBtn.addEventListener('click', () => {
+            root.setAttribute('data-contrast', 'normal');
+            root.setAttribute('data-font-scale', 'normal');
+            root.setAttribute('data-colorblind', 'none');
+            root.removeAttribute('data-dyslexia');
+            root.removeAttribute('data-reduce-motion');
+            root.removeAttribute('data-underline-links');
+            try {
+              localStorage.removeItem('jsf_contrast');
+              localStorage.removeItem('jsf_font_scale');
+              localStorage.removeItem('jsf_colorblind');
+              localStorage.removeItem('jsf_dyslexia');
+              localStorage.removeItem('jsf_reduce_motion');
+              localStorage.removeItem('jsf_underline_links');
+            } catch (e) {}
+            syncUIFromAttributes();
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

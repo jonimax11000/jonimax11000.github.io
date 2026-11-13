@@ -1,0 +1,18 @@
+{
+  "name": "jonimax11000.github.io",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio personal bilingüe (ES/EN) de Jonathan David Signes Falcó — Ingeniería de Software, Python, Odoo, IA, Big Data y Realidad Virtual, sincronizado automáticamente con Jarvis.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "sync:data": "node scripts/sync-portfolio.mjs"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "astro": "^5.1.1"
+  }
+}

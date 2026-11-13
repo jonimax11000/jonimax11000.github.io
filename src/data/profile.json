@@ -1,0 +1,222 @@
+{
+  "name": "Jonathan David Signes Falcó",
+  "shortName": "Jonathan Signes",
+  "handle": "jonimax11000",
+  "avatar": "/avatar.jpg",
+  "email": "jonimax11000@gmail.com",
+  "githubUrl": "https://github.com/jonimax11000",
+  "linkedinUrl": "https://www.linkedin.com/in/jonathan-david-signes-falc%C3%B3-378448262/",
+  "location": {
+    "es": "Cullera, Valencia (España)",
+    "en": "Cullera, Valencia (Spain)"
+  },
+  "workModality": {
+    "es": "Disponible · Presencial, Híbrido o Remoto",
+    "en": "Open to Work · On-site, Hybrid or Remote"
+  },
+  "lastUpdated": "2026-11-13T18:00:00Z",
+  "syncedBy": "Jarvis Portfolio Sync Engine",
+  "headline": {
+    "es": "Ingeniero de Software especializado en Python, Odoo ERP, Inteligencia Artificial, Big Data y Realidad Virtual",
+    "en": "Software Engineer specialized in Python, Odoo ERP, Artificial Intelligence, Big Data & Virtual Reality"
+  },
+  "tagline": {
+    "es": "Construyendo sistemas autónomos con IA local, arquitecturas ERP modulares en Odoo y experiencias inmersivas en 3D/VR con propósito humano.",
+    "en": "Building autonomous local-AI systems, modular Odoo ERP architectures, and human-centered 3D/VR immersive experiences."
+  },
+  "about": {
+    "es": [
+      "¿Alguna vez has sentido que la tecnología puede cambiar vidas? Yo lo comprobé trabajando en el instituto de investigación IRTIC, donde ayudé a crear herramientas que unen innovación y aprendizaje humano.",
+      "Mi primer gran reto fue un simulador en Realidad Virtual para futuras comadronas, donde practicaban el test neonatal APGAR en un entorno clínico seguro. Después llegó el museo virtual de Santiago Ramón y Cajal en Unity, permitiendo 'pasear' por su legado e incluso proyectarlo en una sala inmersiva CAVE en 3D.",
+      "Hoy combino esa base técnica con el desarrollo de software empresarial y ciencia de datos: graduado en DAM con nota media de 9,05, cofundador de la plataforma de movilidad ecológica EviroCero, desarrollador de módulos avanzados e IA para Odoo 19 en Grup Apunts y creador de Jarvis, mi propio ecosistema agéntico de IA local."
+    ],
+    "en": [
+      "Have you ever felt that technology can change lives? I experienced it firsthand while working at the IRTIC research institute, building tools that bridge technical innovation and human learning.",
+      "My first major challenge was a Virtual Reality simulator for future midwives to practice the neonatal APGAR test in a safe clinical environment. Next came the Santiago Ramón y Cajal virtual museum in Unity, allowing visitors to walk through his legacy—even inside a 3D immersive CAVE room.",
+      "Today, I combine that foundation with enterprise software engineering and data science: graduated in Multiplatform Application Development (GPA 9.05/10), co-founder of the green-mobility platform EviroCero, Odoo 19 & AI module developer at Grup Apunts, and creator of Jarvis, my own local AI agentic ecosystem."
+    ]
+  },
+  "skillCategories": [
+    {
+      "id": "ai-data",
+      "title": {
+        "es": "IA, Big Data & Python",
+        "en": "AI, Big Data & Python"
+      },
+      "skills": ["Python", "LLMs Locales (Ollama)", "Agentes MCP", "Pandas", "Scikit-Learn", "Seaborn", "Jupyter", "Playwright", "SQLite AES"]
+    },
+    {
+      "id": "erp-backend",
+      "title": {
+        "es": "Odoo ERP, Backend & Cloud",
+        "en": "Odoo ERP, Backend & Cloud"
+      },
+      "skills": ["Odoo (v17–v19)", "PostgreSQL / PostGIS", "Spring Boot (Java)", "Node.js / Express", "REST APIs & JWT", "WebSockets", "Docker & Nginx", "MongoDB"]
+    },
+    {
+      "id": "multiplatform-xr",
+      "title": {
+        "es": "Multiplataforma, Frontend & XR",
+        "en": "Multiplatform, Frontend & XR"
+      },
+      "skills": ["Flutter / Dart", "Unity 3D / C#", "OpenXR & MRTK", "CAVE 3D", "ShaderLab / HLSL", "Vue.js & Astro", "TypeScript / JS", "Web Components"]
+    }
+  ],
+  "experience": [
+    {
+      "role": {
+        "es": "Cofundador & Ingeniero de Software Full-Stack / Odoo",
+        "en": "Co-Founder & Full-Stack / Odoo Software Engineer"
+      },
+      "company": "EviroCero · Global Byte",
+      "period": {
+        "es": "2025 – Actualidad",
+        "en": "2025 – Present"
+      },
+      "location": {
+        "es": "Comunidad Valenciana, España · Híbrido",
+        "en": "Valencia Region, Spain · Hybrid"
+      },
+      "type": "tech",
+      "description": {
+        "es": "Diseño y desarrollo de una plataforma integral para la transición ecológica en el transporte urbano y navegación en Zonas de Bajas Emisiones (ZBE). Integración con Odoo ERP, motor de rutas dinámicas (GraphHopper/Photon), backend en Spring Boot y Node.js, y aplicación móvil multiplataforma en Flutter.",
+        "en": "Design and engineering of a comprehensive platform for urban green mobility and Low Emission Zone (LEZ/ZBE) navigation. Built Odoo ERP integration, dynamic routing engine (GraphHopper/Photon), Spring Boot & Node.js microservices, and a cross-platform Flutter mobile app."
+      },
+      "technologies": ["Odoo ERP", "Python", "Flutter", "Spring Boot", "Node.js", "GraphHopper", "PostgreSQL", "Docker", "Nginx"]
+    },
+    {
+      "role": {
+        "es": "Consultor y Desarrollador de Odoo",
+        "en": "Odoo ERP Consultant & Developer"
+      },
+      "company": "Grup Apunts",
+      "period": {
+        "es": "mar. 2026 – jun. 2026 · 4 meses",
+        "en": "Mar 2026 – Jun 2026 · 4 mos"
+      },
+      "location": {
+        "es": "L'Alcúdia, Valencia · Presencial",
+        "en": "L'Alcúdia, Valencia · On-site"
+      },
+      "type": "tech",
+      "description": {
+        "es": "Desarrollo en el equipo de ingeniería de Odoo 19.0 creando suites verticales como Cookast (previsiones, compras, escandallos MRP, TPV y turnos RRHH), integración de IA local para predicción de demanda y detección de anomalías de foodcost, y optimización de bases de datos PostgreSQL.",
+        "en": "Engineered custom Odoo 19.0 vertical suites including Cookast (forecasting, purchasing, MRP BOM, POS and HR shift planning), local AI integration for demand prediction and food-cost anomaly detection, and PostgreSQL optimization."
+      },
+      "technologies": ["Odoo 19.0", "Python", "PostgreSQL", "XML / QWeb", "IA Predictiva", "JavaScript"]
+    },
+    {
+      "role": {
+        "es": "Desarrollador Full-Stack & Líder de Backend (Prácticas)",
+        "en": "Full-Stack Developer & Backend Lead (Internship)"
+      },
+      "company": "AUTIS INGENIEROS",
+      "period": {
+        "es": "may. 2025 – jun. 2025 · 2 meses",
+        "en": "May 2025 – Jun 2025 · 2 mos"
+      },
+      "location": {
+        "es": "Gandía, Valencia · En remoto",
+        "en": "Gandía, Valencia · Remote"
+      },
+      "type": "tech",
+      "description": {
+        "es": "Jefe de backend y soporte en frontend en el desarrollo de una plataforma personalizada basada en OpenProject para la gestión administrativa de usuarios, proyectos, tareas e informes analíticos de rendimiento.",
+        "en": "Backend lead and frontend contributor developing a customized OpenProject enterprise platform for managing users, projects, tasks, and analytical work visualizations."
+      },
+      "technologies": ["Node.js", "Express.js", "OpenProject", "JavaScript", "Web Components", "REST API"]
+    },
+    {
+      "role": {
+        "es": "Ingeniero de Software de Realidad Virtual y Mixta",
+        "en": "Virtual & Mixed Reality Software Engineer"
+      },
+      "company": "IRTIC · Universitat de València",
+      "period": {
+        "es": "oct. 2022 – ene. 2023 · 4 meses",
+        "en": "Oct 2022 – Jan 2023 · 4 mos"
+      },
+      "location": {
+        "es": "Paterna, Valencia · Presencial",
+        "en": "Paterna, Valencia · On-site"
+      },
+      "type": "tech",
+      "description": {
+        "es": "Desarrollo de aplicaciones de Realidad Virtual y Mixta en Unity/C#: simulador clínico VR para entrenamiento del test APGAR en comadronas, museo virtual interactivo de Ramón y Cajal compatible con sala inmersiva CAVE 3D, y teclado virtual VR multilingüe (coreano, árabe, chino y latino).",
+        "en": "Developed VR/MR applications in Unity/C#: clinical VR simulator for midwife APGAR training, interactive Ramón y Cajal virtual museum running in a 3D CAVE immersive room, and a multilingual VR virtual keyboard (Korean, Arabic, Chinese, and Latin scripts)."
+      },
+      "technologies": ["Unity 3D", "C#", "OpenXR / MRTK", "CAVE 3D", "Realidad Virtual", "ShaderLab / HLSL"]
+    },
+    {
+      "role": {
+        "es": "Encargado de Estacionamiento Municipal & Socorrista Acuático",
+        "en": "Municipal Parking Supervisor & Certified Lifeguard"
+      },
+      "company": "Ayuntamiento de Cullera · Socorristas del Mediterráneo · SEPHOR",
+      "period": {
+        "es": "2017 – 2026 (Campañas estivales)",
+        "en": "2017 – 2026 (Summer seasons)"
+      },
+      "location": {
+        "es": "Cullera y Valencia · Presencial",
+        "en": "Cullera & Valencia · On-site"
+      },
+      "type": "softskills",
+      "description": {
+        "es": "Trayectoria continuada en servicios públicos y emergencias que ha forjado competencias transversales clave para la ingeniería: toma de decisiones críticas bajo presión, coordinación de equipos, trato directo con ciudadanía multilingüe y responsabilidad operativa.",
+        "en": "Sustained public-service and emergency response track record that forged essential engineering soft skills: critical decision-making under pressure, team coordination, multilingual public service, and operational accountability."
+      },
+      "technologies": ["Gestión bajo presión", "Trabajo en equipo", "Atención al público", "Primeros auxilios", "Resolución de incidencias"]
+    }
+  ],
+  "education": [
+    {
+      "title": {
+        "es": "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)",
+        "en": "Higher Technician in Multiplatform Application Development (DAM)"
+      },
+      "institution": "IES Jaume II El Just",
+      "period": "2024 – 2026",
+      "badge": {
+        "es": "Finalizado · Nota media: 9,05 / 10",
+        "en": "Graduated · GPA: 9.05 / 10"
+      },
+      "details": {
+        "es": "Formación intensiva en ingeniería de software multiplataforma, microservicios, bases de datos relacionales/NoSQL, despliegue con Docker y proyectos de Inteligencia Artificial y Big Data.",
+        "en": "Intensive training in multiplatform software engineering, microservices, relational/NoSQL databases, Docker deployment, and Artificial Intelligence & Big Data projects."
+      }
+    },
+    {
+      "title": {
+        "es": "Certificación Oficial de Inglés — Nivel B2.2",
+        "en": "Official English Certification — Level B2.2 (CEFR)"
+      },
+      "institution": "Escuela Oficial de Idiomas (EOI)",
+      "period": "2024 – Actualidad",
+      "badge": {
+        "es": "B2.2 · Competencia Profesional",
+        "en": "B2.2 · Professional Proficiency"
+      },
+      "details": {
+        "es": "Comunicación fluida oral y escrita orientada a entornos internacionales y documentación técnica.",
+        "en": "Fluent spoken and written communication tailored for international teams and technical documentation."
+      }
+    },
+    {
+      "title": {
+        "es": "Certificaciones en Ciencia de Datos: Pandas & Data Visualization",
+        "en": "Data Science Certifications: Pandas & Data Visualization"
+      },
+      "institution": "Kaggle",
+      "period": "2026",
+      "badge": {
+        "es": "Verificado · Data Science",
+        "en": "Verified · Data Science"
+      },
+      "details": {
+        "es": "Manipulación avanzada de datos tabulares, limpieza de series temporales y visualización estadística con Python, Pandas y Seaborn.",
+        "en": "Advanced tabular data manipulation, time-series cleaning, and statistical visualization using Python, Pandas, and Seaborn."
+      }
+    }
+  ]
+}

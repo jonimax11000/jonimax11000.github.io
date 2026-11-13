@@ -1,0 +1,89 @@
+---
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProjectCard from '../../../components/ProjectCard.astro';
+import projectsData from '../../../data/projects.json';
+import profile from '../../../data/profile.json';
+import { ui } from '../../../i18n/ui';
+
+export const getStaticPaths = (({ paginate }) => {
+  return paginate(projectsData.projects, { pageSize: 6 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const lang = 'en';
+const t = ui[lang];
+
+const title = `${t.catalog.title} (${t.catalog.showingPage} ${page.currentPage} ${t.catalog.of} ${page.lastPage}) — ${profile.name}`;
+const description = `Paginated catalog of public and private software engineering projects by ${profile.name} (${t.catalog.showingPage} ${page.currentPage} of ${page.lastPage}): Python, Odoo ERP, AI, Big Data, Flutter & Virtual Reality.`;
+
+const canonicalPath = `/en/projects/${page.currentPage}/`;
+const alternateEsPath = `/proyectos/${page.currentPage}/`;
+const prevUrl = page.url.prev ? `${page.url.prev}/`.replace(/\/\/$/, '/') : undefined;
+const nextUrl = page.url.next ? `${page.url.next}/`.replace(/\/\/$/, '/') : undefined;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang={lang}
+  canonicalPath={canonicalPath}
+  alternateEsPath={alternateEsPath}
+  alternateEnPath={canonicalPath}
+  prevUrl={prevUrl}
+  nextUrl={nextUrl}
+>
+  <section class="section" aria-labelledby="paginated-catalog-heading">
+    <div class="container">
+      <div class="section-header" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1rem;">
+        <div>
+          <span class="section-tag">{t.catalog.sectionTag} · {t.catalog.showingPage.toUpperCase()} {page.currentPage}/{page.lastPage}</span>
+          <h1 id="paginated-catalog-heading" class="section-title">
+            {t.catalog.title} — {t.catalog.showingPage} {page.currentPage} {t.catalog.of} {page.lastPage}
+          </h1>
+          <p class="section-subtitle">
+            {t.catalog.subtitle} ({page.total} {t.catalog.totalProjectsLabel}).
+          </p>
+        </div>
+        <a href="/en/#todos-los-proyectos" class="btn-secondary">
+          ← {t.catalog.backToHome}
+        </a>
+      </div>
+
+      <div class="projects-grid">
+        {page.data.map((project) => (
+          <ProjectCard project={project} lang={lang} />
+        ))}
+      </div>
+
+      <nav class="pagination-nav" aria-label="Static projects pagination">
+        <a
+          href={page.url.prev ? `/en/projects/${page.currentPage - 1}/` : undefined}
+          class="page-btn"
+          aria-disabled={!page.url.prev ? 'true' : undefined}
+        >
+          ← {t.catalog.prevPage}
+        </a>
+
+        {Array.from({ length: page.lastPage }, (_, i) => i + 1).map((num) => (
+          <a
+            href={`/en/projects/${num}/`}
+            class="page-btn"
+            aria-current={num === page.currentPage ? 'page' : undefined}
+            aria-label={`${t.catalog.pageLinkAria} ${num}`}
+          >
+            {num}
+          </a>
+        ))}
+
+        <a
+          href={page.url.next ? `/en/projects/${page.currentPage + 1}/` : undefined}
+          class="page-btn"
+          aria-disabled={!page.url.next ? 'true' : undefined}
+        >
+          {t.catalog.nextPage} →
+        </a>
+      </nav>
+    </div>
+  </section>
+</BaseLayout>

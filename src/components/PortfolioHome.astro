@@ -1,0 +1,473 @@
+---
+import { ui, type Lang } from '../i18n/ui';
+import profile from '../data/profile.json';
+import projectsData from '../data/projects.json';
+import ProjectCard from './ProjectCard.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = ui[lang];
+
+const allProjects = projectsData.projects;
+const featuredProjects = allProjects.filter((p) => p.featured);
+const publicCount = allProjects.filter((p) => !p.private).length;
+const privateCount = allProjects.filter((p) => p.private).length;
+
+// Collect unique programming languages across all projects
+const allLanguages = Array.from(
+  new Set(allProjects.flatMap((p) => p.languages))
+).sort();
+
+const PAGE_SIZE = 6;
+const totalPages = Math.ceil(allProjects.length / PAGE_SIZE);
+const staticCatalogBase = lang === 'es' ? '/proyectos' : '/en/projects';
+---
+
+<!-- HERO SECTION -->
+<section class="section" aria-labelledby="hero-heading">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="status-pill">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>{t.hero.statusBadge} · {profile.workModality[lang]}</span>
+        </div>
+
+        <h1 id="hero-heading" class="hero-title">
+          {profile.name.split(' ').slice(0, 2).join(' ')}{' '}
+          <span class="hero-gradient-text">{profile.name.split(' ').slice(2).join(' ')}</span>
+        </h1>
+
+        <p class="hero-headline">{profile.headline[lang]}</p>
+        <p class="hero-tagline">{profile.tagline[lang]}</p>
+
+        <div class="hero-actions">
+          <a href="#mejores-proyectos" class="btn-primary">
+            <span>{t.hero.ctaProjects}</span>
+            <span aria-hidden="true">↓</span>
+          </a>
+          <a href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+            </svg>
+            <span>{t.hero.ctaContact}</span>
+          </a>
+          <a href={profile.githubUrl} target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.1 3.29 9.42 7.86 10.95.58.1.79-.25.79-.56v-2.02c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.05 11.05 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.77.12 3.06.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.53 11.53 0 0 0 23.5 12.02C23.5 5.74 18.27.5 12 .5z" />
+            </svg>
+            <span>{t.hero.ctaGithub}</span>
+          </a>
+        </div>
+      </div>
+
+      <aside class="hero-profile-card" aria-label={profile.name}>
+        <div class="avatar-wrapper">
+          <img
+            src={profile.avatar}
+            alt={profile.name}
+            width="132"
+            height="132"
+            class="avatar-img"
+            loading="eager"
+          />
+        </div>
+        <h2 style="font-size:1.2rem;margin:0 0 0.25rem 0;">{profile.name}</h2>
+        <p style="font-family:var(--font-mono);font-size:0.84rem;color:var(--accent-cyan);margin:0 0 0.65rem 0;">
+          @{profile.handle} · {profile.location[lang]}
+        </p>
+        <div class="badge-row" style="justify-content:center;margin-bottom:0.85rem;">
+          <span class="badge badge-featured">Python & AI</span>
+          <span class="badge badge-public">Odoo 19 ERP</span>
+          <span class="badge badge-lang">Unity XR / VR</span>
+        </div>
+        <a
+          href={`mailto:${profile.email}`}
+          class="btn-control"
+          style="width:100%;justify-content:center;"
+        >
+          ✉ {profile.email}
+        </a>
+      </aside>
+    </div>
+
+    <div class="stats-grid" role="region" aria-label="Portfolio key metrics">
+      <div class="stat-card">
+        <span class="stat-value">{allProjects.length}</span>
+        <span class="stat-label">{t.hero.statsTotalProjects}</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value">{publicCount} / {privateCount}</span>
+        <span class="stat-label">{t.hero.statsPublicPrivate}</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value">9.05 / 10</span>
+        <span class="stat-label">{t.hero.statsGrade}</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value" style="font-size:1.15rem;line-height:1.95rem;">{t.hero.statsSyncValue}</span>
+        <span class="stat-label">{t.hero.statsSync}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 01. ABOUT ME & TECHNICAL STACK BENTO -->
+<section id="sobre-mi" class="section" aria-labelledby="about-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">{t.about.sectionTag}</span>
+      <h2 id="about-heading" class="section-title">{t.about.title}</h2>
+      <p class="section-subtitle">{t.about.subtitle}</p>
+    </div>
+
+    <div class="card" style="margin-bottom:2rem;">
+      {profile.about[lang].map((paragraph) => (
+        <p style="font-size:1.04rem;color:var(--text-secondary);margin:0 0 1rem 0;">
+          {paragraph}
+        </p>
+      ))}
+    </div>
+
+    <h3 style="font-size:1.3rem;margin:0 0 1.2rem 0;">{t.about.stackTitle}</h3>
+    <div class="bento-grid">
+      {profile.skillCategories.map((cat) => (
+        <div class="card">
+          <h4 style="font-size:1.08rem;margin:0 0 0.9rem 0;color:var(--accent-cyan);">
+            {cat.title[lang]}
+          </h4>
+          <div class="badge-row" style="margin-bottom:0;">
+            {cat.skills.map((skill) => (
+              <span class="badge">{skill}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- 02. EXPERIENCE & EDUCATION (SYNCED WITH LINKEDIN) -->
+<section id="experiencia" class="section" aria-labelledby="exp-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">{t.about.expSectionTag}</span>
+      <h2 id="exp-heading" class="section-title">{t.about.expTitle}</h2>
+      <p class="section-subtitle">{t.about.linkedinVerified}</p>
+    </div>
+
+    <div class="timeline" style="margin-bottom:3.25rem;">
+      {profile.experience.map((exp) => (
+        <article class="timeline-item" data-role-type={exp.type}>
+          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:0.75rem;margin-bottom:0.5rem;">
+            <div>
+              <span class:list={['badge', exp.type === 'softskills' ? 'badge-public' : 'badge-featured']} style="margin-bottom:0.4rem;">
+                {exp.type === 'softskills' ? t.about.softSkillsBadge : t.about.techRoleBadge}
+              </span>
+              <h3 style="font-size:1.2rem;margin:0;">
+                {exp.role[lang]} · <span style="color:var(--accent-cyan);">{exp.company}</span>
+              </h3>
+            </div>
+            <div style="text-align:right;font-family:var(--font-mono);font-size:0.82rem;color:var(--text-muted);">
+              <div>{exp.period[lang]}</div>
+              <div>{exp.location[lang]}</div>
+            </div>
+          </div>
+
+          <p style="color:var(--text-secondary);margin:0.5rem 0 0.95rem 0;">
+            {exp.description[lang]}
+          </p>
+
+          <div class="badge-row" style="margin-bottom:0;">
+            {exp.technologies.map((tech) => (
+              <span class="badge">{tech}</span>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <h3 style="font-size:1.5rem;margin:0 0 1.25rem 0;">{t.about.eduTitle}</h3>
+    <div class="bento-grid">
+      {profile.education.map((edu) => (
+        <article class="card">
+          <div class="badge-row">
+            <span class="badge badge-public">{edu.badge[lang]}</span>
+            <span class="badge" style="font-family:var(--font-mono);">{edu.period}</span>
+          </div>
+          <h4 style="font-size:1.1rem;margin:0 0 0.35rem 0;">{edu.title[lang]}</h4>
+          <p style="font-family:var(--font-mono);font-size:0.84rem;color:var(--accent-cyan);margin:0 0 0.75rem 0;">
+            {edu.institution}
+          </p>
+          <p style="font-size:0.93rem;color:var(--text-secondary);margin:0;">
+            {edu.details[lang]}
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- 03. FEATURED PROJECTS (JARVIS, EVIROCERO, TECLADO) -->
+<section id="mejores-proyectos" class="section" aria-labelledby="featured-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">{t.featured.sectionTag}</span>
+      <h2 id="featured-heading" class="section-title">{t.featured.title}</h2>
+      <p class="section-subtitle">{t.featured.subtitle}</p>
+    </div>
+
+    <div class="bento-grid">
+      {featuredProjects.map((project) => (
+        <ProjectCard project={project} lang={lang} isFeaturedSection={true} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- 04. ALL PROJECTS (PUBLIC & PRIVATE) WITH PAGINATION & FILTERS -->
+<section id="todos-los-proyectos" class="section" aria-labelledby="catalog-heading">
+  <div class="container">
+    <div class="section-header" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1rem;">
+      <div>
+        <span class="section-tag">{t.catalog.sectionTag}</span>
+        <h2 id="catalog-heading" class="section-title">{t.catalog.title}</h2>
+        <p class="section-subtitle">{t.catalog.subtitle}</p>
+      </div>
+      <a href={`${staticCatalogBase}/1/`} class="btn-control" style="color:var(--accent-cyan);">
+        <span>{t.catalog.viewStaticCatalog} (SSG SEO)</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <!-- Interactive Filter & Search Toolbar -->
+    <div class="catalog-toolbar" role="region" aria-label={t.catalog.title}>
+      <div class="filter-pills" role="group" aria-label="Visibility filter">
+        <button type="button" class="filter-btn" data-vis-filter="all" aria-pressed="true">
+          {t.catalog.filterAll} ({allProjects.length})
+        </button>
+        <button type="button" class="filter-btn" data-vis-filter="public" aria-pressed="false">
+          {t.catalog.filterPublic} ({publicCount})
+        </button>
+        <button type="button" class="filter-btn" data-vis-filter="private" aria-pressed="false">
+          {t.catalog.filterPrivate} ({privateCount})
+        </button>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:0.65rem;flex:1;justify-content:flex-end;">
+        <label for="catalog-lang-select" class="skip-link">{t.catalog.languageFilterAll}</label>
+        <select id="catalog-lang-select" class="select-input" aria-label={t.catalog.languageFilterAll}>
+          <option value="all">{t.catalog.languageFilterAll}</option>
+          {allLanguages.map((l) => (
+            <option value={l}>{l}</option>
+          ))}
+        </select>
+
+        <label for="catalog-search-input" class="skip-link">{t.catalog.searchPlaceholder}</label>
+        <input
+          type="search"
+          id="catalog-search-input"
+          class="search-input"
+          placeholder={t.catalog.searchPlaceholder}
+          aria-label={t.catalog.searchPlaceholder}
+        />
+      </div>
+    </div>
+
+    <!-- Projects Container -->
+    <div id="catalog-grid" class="projects-grid">
+      {allProjects.map((project) => (
+        <ProjectCard project={project} lang={lang} />
+      ))}
+    </div>
+
+    <!-- Empty State -->
+    <div id="catalog-empty" class="card" style="display:none;text-align:center;padding:3rem 1.5rem;">
+      <p style="font-size:1.1rem;margin:0 0 1rem 0;">{t.catalog.emptySearch}</p>
+      <button type="button" id="catalog-reset-btn" class="btn-secondary" style="margin:0 auto;">
+        {t.catalog.resetFilters}
+      </button>
+    </div>
+
+    <!-- Accessible Client + Static SEO Pagination -->
+    <nav
+      id="catalog-pagination"
+      class="pagination-nav"
+      aria-label={lang === 'es' ? 'Paginación de proyectos' : 'Projects pagination'}
+      data-page-size={PAGE_SIZE}
+      data-showing-label={t.catalog.showingPage}
+      data-of-label={t.catalog.of}
+      data-prev-label={t.catalog.prevPage}
+      data-next-label={t.catalog.nextPage}
+    >
+      <button type="button" id="page-prev-btn" class="page-btn">
+        ← {t.catalog.prevPage}
+      </button>
+      <div id="page-numbers-container" style="display:flex;gap:0.4rem;flex-wrap:wrap;">
+        {Array.from({ length: totalPages }, (_, idx) => idx + 1).map((pageNum) => (
+          <a
+            href={`${staticCatalogBase}/${pageNum}/`}
+            class="page-btn"
+            data-page-btn={pageNum}
+            aria-current={pageNum === 1 ? 'page' : undefined}
+            aria-label={`${t.catalog.pageLinkAria} ${pageNum}`}
+          >
+            {pageNum}
+          </a>
+        ))}
+      </div>
+      <button type="button" id="page-next-btn" class="page-btn">
+        {t.catalog.nextPage} →
+      </button>
+    </nav>
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    const grid = document.getElementById('catalog-grid');
+    const nav = document.getElementById('catalog-pagination');
+    if (!grid || !nav) return;
+
+    const cards = Array.from(grid.querySelectorAll('[data-project-card]'));
+    const visBtns = Array.from(document.querySelectorAll('[data-vis-filter]'));
+    const langSelect = document.getElementById('catalog-lang-select');
+    const searchInput = document.getElementById('catalog-search-input');
+    const emptyBox = document.getElementById('catalog-empty');
+    const resetBtn = document.getElementById('catalog-reset-btn');
+    const prevBtn = document.getElementById('page-prev-btn');
+    const nextBtn = document.getElementById('page-next-btn');
+    const numbersContainer = document.getElementById('page-numbers-container');
+
+    const pageSize = parseInt(nav.getAttribute('data-page-size') || '6', 10);
+    let currentVis = 'all';
+    let currentLang = 'all';
+    let currentQuery = '';
+    let currentPage = 1;
+
+    function getFilteredCards() {
+      return cards.filter((card) => {
+        const vis = card.getAttribute('data-visibility') || 'public';
+        const langs = (card.getAttribute('data-languages') || '').split(',');
+        const text = card.getAttribute('data-search') || '';
+
+        if (currentVis !== 'all' && vis !== currentVis) return false;
+        if (currentLang !== 'all' && !langs.includes(currentLang)) return false;
+        if (currentQuery && !text.includes(currentQuery)) return false;
+        return true;
+      });
+    }
+
+    function renderCatalog(scrollIntoView = false) {
+      const filtered = getFilteredCards();
+      const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+      if (currentPage > totalPages) currentPage = totalPages;
+
+      cards.forEach((c) => {
+        c.style.display = 'none';
+      });
+
+      const startIdx = (currentPage - 1) * pageSize;
+      const pageItems = filtered.slice(startIdx, startIdx + pageSize);
+      pageItems.forEach((c) => {
+        c.style.display = 'flex';
+      });
+
+      if (emptyBox) {
+        emptyBox.style.display = filtered.length === 0 ? 'block' : 'none';
+      }
+      nav.style.display = filtered.length === 0 ? 'none' : 'flex';
+
+      if (prevBtn) prevBtn.disabled = currentPage <= 1;
+      if (nextBtn) nextBtn.disabled = currentPage >= totalPages;
+
+      if (numbersContainer) {
+        numbersContainer.innerHTML = '';
+        for (let p = 1; p <= totalPages; p++) {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'page-btn';
+          btn.textContent = String(p);
+          if (p === currentPage) {
+            btn.setAttribute('aria-current', 'page');
+          }
+          btn.addEventListener('click', () => {
+            currentPage = p;
+            renderCatalog(true);
+          });
+          numbersContainer.appendChild(btn);
+        }
+      }
+
+      if (scrollIntoView) {
+        const section = document.getElementById('todos-los-proyectos');
+        if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    visBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        currentVis = btn.getAttribute('data-vis-filter') || 'all';
+        visBtns.forEach((b) => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'));
+        currentPage = 1;
+        renderCatalog(false);
+      });
+    });
+
+    if (langSelect) {
+      langSelect.addEventListener('change', () => {
+        currentLang = langSelect.value;
+        currentPage = 1;
+        renderCatalog(false);
+      });
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', () => {
+        currentQuery = searchInput.value.trim().toLowerCase();
+        currentPage = 1;
+        renderCatalog(false);
+      });
+    }
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        currentVis = 'all';
+        currentLang = 'all';
+        currentQuery = '';
+        currentPage = 1;
+        if (langSelect) langSelect.value = 'all';
+        if (searchInput) searchInput.value = '';
+        visBtns.forEach((b) =>
+          b.setAttribute('aria-pressed', b.getAttribute('data-vis-filter') === 'all' ? 'true' : 'false')
+        );
+        renderCatalog(false);
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderCatalog(true);
+        }
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        const filtered = getFilteredCards();
+        const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderCatalog(true);
+        }
+      });
+    }
+
+    renderCatalog(false);
+  })();
+</script>

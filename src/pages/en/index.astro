@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PortfolioHome from '../../components/PortfolioHome.astro';
+import profile from '../../data/profile.json';
+
+const title = `${profile.name} — Software Engineer | Python, Odoo ERP, AI & Virtual Reality`;
+const description =
+  'Official portfolio of Jonathan David Signes Falcó (@jonimax11000). Software Engineer specialized in Python, Odoo 19 ERP, Local Artificial Intelligence (Jarvis), Big Data, and Virtual Reality (Unity/XR).';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang="en"
+  canonicalPath="/en/"
+  alternateEsPath="/"
+  alternateEnPath="/en/"
+>
+  <PortfolioHome lang="en" />
+</BaseLayout>

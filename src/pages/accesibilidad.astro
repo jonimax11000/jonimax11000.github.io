@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import profile from '../data/profile.json';
+
+const title = `Declaración de Accesibilidad Legal (UE & EE. UU.) — ${profile.name}`;
+const description =
+  'Declaración de conformidad en accesibilidad web conforme a la normativa europea (EN 301 549, Directiva UE 2016/2102, European Accessibility Act EAA, RD 1112/2018) y estadounidense (ADA Title III, Section 508) bajo estándares WCAG 2.1 / 2.2 Nivel AA.';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang="es"
+  canonicalPath="/accesibilidad/"
+  alternateEsPath="/accesibilidad/"
+  alternateEnPath="/en/accessibility/"
+>
+  <section class="section" aria-labelledby="a11y-legal-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// CUMPLIMIENTO NORMATIVO UE &amp; EE. UU.</span>
+        <h1 id="a11y-legal-heading" class="section-title">
+          Declaración de Accesibilidad y Conformidad Legal
+        </h1>
+        <p class="section-subtitle">
+          Compromiso de accesibilidad universal conforme a la legislación de la Unión Europea, España y los Estados Unidos de América.
+        </p>
+      </div>
+
+      <div class="bento-grid" style="margin-bottom:2rem;">
+        <article class="card">
+          <span class="badge badge-featured" style="align-self:flex-start;margin-bottom:0.75rem;">Unión Europea &amp; España</span>
+          <h2 style="font-size:1.2rem;margin:0 0 0.65rem 0;">Normativa Europea (EN 301 549 &amp; EAA)</h2>
+          <p style="color:var(--text-secondary);font-size:0.94rem;margin:0;">
+            Este sitio web ha sido diseñado siguiendo los requisitos técnicos de la norma armonizada europea <strong>EN 301 549 v3.2.1</strong>, la <strong>Directiva (UE) 2016/2102</strong>, el <strong>Acta Europea de Accesibilidad (Directiva UE 2019/882 - EAA)</strong> y el <strong>Real Decreto 1112/2018</strong> en España.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="badge badge-public" style="align-self:flex-start;margin-bottom:0.75rem;">Estados Unidos (USA)</span>
+          <h2 style="font-size:1.2rem;margin:0 0 0.65rem 0;">ADA Title III &amp; Section 508</h2>
+          <p style="color:var(--text-secondary);font-size:0.94rem;margin:0;">
+            Cumple con las directrices de accesibilidad digital exigidas por la <strong>Americans with Disabilities Act (ADA Title III)</strong> del Departamento de Justicia de EE. UU. y la <strong>Section 508 of the Rehabilitation Act (29 U.S.C. § 794d)</strong>.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="badge badge-lang" style="align-self:flex-start;margin-bottom:0.75rem;">W3C WAI Standard</span>
+          <h2 style="font-size:1.2rem;margin:0 0 0.65rem 0;">WCAG 2.1 / 2.2 Nivel AA &amp; AAA</h2>
+          <p style="color:var(--text-secondary);font-size:0.94rem;margin:0;">
+            Conformidad plena con las Pautas de Accesibilidad para el Contenido Web (<strong>WCAG 2.1 y 2.2 Nivel AA</strong>), incluyendo modos opcionales de contraste reforzado <strong>Nivel AAA</strong> y asistencia cromática.
+          </p>
+        </article>
+      </div>
+
+      <div class="card" style="margin-bottom:2rem;">
+        <h2 style="font-size:1.35rem;margin:0 0 1rem 0;">Medidas Técnicas y Asistencias Implementadas</h2>
+        <ul class="project-highlights" style="font-size:0.98rem;">
+          <li>
+            <strong>Asistencia Integral para Daltonismo (Discromatopsia):</strong> Filtros matriciales SVG en tiempo real calibrados para <em>Protanopia</em> (déficit de rojo), <em>Deuteranopia</em> (déficit de verde), <em>Tritanopia</em> (déficit azul-amarillo) y <em>Acromatopsia</em>, además de diferenciación por iconos y bordes discontinuos para no depender nunca exclusivamente del color (Criterio WCAG 1.4.1).
+          </li>
+          <li>
+            <strong>Modo Claro, Modo Oscuro y Alto Contraste (WCAG AAA):</strong> Conmutador persistente entre paleta oscura profunda, modo claro diurno y modo de alto contraste extremo con ratios superiores a 7:1 (Criterios WCAG 1.4.3 y 1.4.6).
+          </li>
+          <li>
+            <strong>Escalado Tipográfico y Lectura para Dislexia:</strong> Ajuste dinámico de tamaño de fuente (100%, 112%, 125%) sin pérdida de funcionalidad ni desbordamiento horizontal, y modo de espaciado ampliado para dislexia (Criterios WCAG 1.4.4 y 1.4.12).
+          </li>
+          <li>
+            <strong>Navegación 100% por Teclado y Lectores de Pantalla:</strong> Enlace directo de salto al contenido principal (<code>Skip to main content</code>), orden de tabulación lógico, anillo de foco de alta visibilidad (<code>:focus-visible</code>), atributos WAI-ARIA semánticos y cierre de diálogos con tecla <code>Escape</code> (Criterios WCAG 2.1.1, 2.4.1 y 2.4.7).
+          </li>
+          <li>
+            <strong>Control de Movimiento y Animaciones:</strong> Respeto automático de la preferencia del sistema operativo <code>prefers-reduced-motion: reduce</code> y control manual en el panel de accesibilidad (Criterio WCAG 2.3.3).
+          </li>
+          <li>
+            <strong>Multilingüismo Semántico:</strong> Declaración explícita de idioma <code>lang="es-ES"</code> y <code>lang="en-GB"</code> en cada documento y etiquetas <code>hreflang</code> bidireccionales (Criterio WCAG 3.1.1).
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2 style="font-size:1.25rem;margin:0 0 0.75rem 0;">Contacto y Canal de Retroalimentación de Accesibilidad</h2>
+        <p style="color:var(--text-secondary);margin:0 0 1rem 0;">
+          Si encuentras alguna barrera de acceso o necesitas información en un formato alternativo accesible conforme a la normativa europea (EN 301 549 / RD 1112/2018) o estadounidense (ADA / Section 508), puedes contactar directamente con el responsable técnico:
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
+          <a href={`mailto:${profile.email}?subject=Accesibilidad%20Web%20Portfolio`} class="btn-primary">
+            ✉ {profile.email}
+          </a>
+          <a href="/" class="btn-secondary">
+            ← Volver al inicio
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
