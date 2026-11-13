@@ -36,6 +36,7 @@ const ogImageUrl = new URL('/og-preview.svg', siteOrigin).toString();
 const homePath = lang === 'es' ? '/' : '/en/';
 const catalogPath = lang === 'es' ? '/proyectos/1/' : '/en/projects/1/';
 const a11yPagePath = lang === 'es' ? '/accesibilidad/' : '/en/accessibility/';
+const cookiesPagePath = lang === 'es' ? '/cookies/' : '/en/cookies/';
 
 // Structured Data JSON-LD (Schema.org: ProfilePage + Person + WebSite + SoftwareSourceCode ItemList)
 const schemaGraph = {
@@ -475,6 +476,7 @@ const schemaGraph = {
             <a href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer" class="btn-control">LinkedIn</a>
             <a href={`mailto:${profile.email}`} class="btn-control">Email</a>
             <a href={a11yPagePath} class="btn-control">{t.nav.accessibility}</a>
+            <a href={cookiesPagePath} class="btn-control">{t.nav.cookies}</a>
           </div>
         </div>
         <div style="border-top:1px solid var(--border-subtle);padding-top:1rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:0.75rem;font-size:0.82rem;color:var(--text-muted);">
@@ -485,6 +487,25 @@ const schemaGraph = {
         </div>
       </div>
     </footer>
+
+    <!-- Informative Cookie & Local Storage Banner (Zero Tracking) -->
+    <aside
+      id="cookie-notice"
+      class="cookie-banner"
+      role="region"
+      aria-label={t.nav.cookies}
+      data-visible="false"
+    >
+      <div class="container cookie-banner-inner">
+        <p class="cookie-banner-text">{t.footer.cookieBannerText}</p>
+        <div class="cookie-banner-actions">
+          <a href={cookiesPagePath} class="btn-control">{t.footer.cookieBannerPolicy}</a>
+          <button type="button" id="cookie-ack-btn" class="btn-primary" style="padding:0.48rem 1rem;font-size:0.86rem;">
+            {t.footer.cookieBannerAccept}
+          </button>
+        </div>
+      </div>
+    </aside>
 
     <!-- Accessibility & Theme Interactive Controller -->
     <script is:inline>
@@ -504,6 +525,24 @@ const schemaGraph = {
         const fontBtns = document.querySelectorAll('[data-font-btn]');
         const navToggleBtn = document.getElementById('nav-toggle-btn');
         const navList = document.getElementById('primary-nav-list');
+        const cookieBanner = document.getElementById('cookie-notice');
+        const cookieAckBtn = document.getElementById('cookie-ack-btn');
+
+        if (cookieBanner) {
+          try {
+            if (localStorage.getItem('jsf_cookie_notice_ack') !== 'true') {
+              cookieBanner.setAttribute('data-visible', 'true');
+            }
+          } catch (e) {
+            cookieBanner.setAttribute('data-visible', 'true');
+          }
+          if (cookieAckBtn) {
+            cookieAckBtn.addEventListener('click', () => {
+              cookieBanner.setAttribute('data-visible', 'false');
+              try { localStorage.setItem('jsf_cookie_notice_ack', 'true'); } catch (e) {}
+            });
+          }
+        }
 
         if (navToggleBtn && navList) {
           navToggleBtn.addEventListener('click', () => {

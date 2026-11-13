@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import profile from '../data/profile.json';
+
+const title = `Política de Cookies y Almacenamiento Local — ${profile.name}`;
+const description =
+  'Política de Cookies y Privacidad conforme al RGPD (UE), Directiva ePrivacy, LSSI-CE (España) y CCPA/CPRA (EE. UU.). Este portfolio no utiliza cookies de seguimiento ni publicidad, únicamente almacenamiento técnico funcional.';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang="es"
+  canonicalPath="/cookies/"
+  alternateEsPath="/cookies/"
+  alternateEnPath="/en/cookies/"
+>
+  <section class="section" aria-labelledby="cookies-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// PRIVACIDAD · RGPD · LSSI-CE · CCPA</span>
+        <h1 id="cookies-heading" class="section-title">
+          Política de Cookies y Almacenamiento Local
+        </h1>
+        <p class="section-subtitle">
+          Transparencia total sobre privacidad: este sitio web está diseñado bajo el principio de <strong>privacidad por defecto</strong> y <strong>no utiliza cookies de rastreo, analítica invasiva ni publicidad</strong>.
+        </p>
+      </div>
+
+      <div class="bento-grid" style="margin-bottom:2rem;">
+        <article class="card">
+          <span class="badge badge-public" style="align-self:flex-start;margin-bottom:0.75rem;">0 Cookies de Seguimiento</span>
+          <h2 style="font-size:1.18rem;margin:0 0 0.65rem 0;">Sin Rastreo ni Publicidad</h2>
+          <p style="color:var(--text-secondary);font-size:0.94rem;margin:0;">
+            No se instalan cookies de terceros con fines publicitarios, elaboración de perfiles ni analítica comportamental (sin Google Analytics, Meta Pixel ni redes publicitarias).
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="badge badge-featured" style="align-self:flex-start;margin-bottom:0.75rem;">Técnico / Exento</span>
+          <h2 style="font-size:1.18rem;margin:0 0 0.65rem 0;">Base Legal (UE &amp; España)</h2>
+          <p style="color:var(--text-secondary);font-size:0.94rem;margin:0;">
+            Conforme al <strong>artículo 22.2 de la LSSI-CE</strong>, el <strong>RGPD (UE 2016/679)</strong> y las guías de la <strong>AEPD</strong>, el almacenamiento local estrictamente necesario para recordar preferencias elegidas expresamente por el usuario está exento de consentimiento publicitario.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="badge badge-lang" style="align-self:flex-start;margin-bottom:0.75rem;">EE. UU. (CCPA / CPRA)</span>
+          <h2 style="font-size:1.18rem;margin:0 0 0.65rem 0;">No Venta ni Cesión de Datos</h2>
+          <p style="color:var(--text-secondary);font-size:0.94rem;margin:0;">
+            En cumplimiento con la <strong>CCPA/CPRA</strong> de California y leyes estatales de privacidad de EE. UU., este sitio no vende, alquila ni comparte datos personales con terceros.
+          </p>
+        </article>
+      </div>
+
+      <div class="card" style="margin-bottom:2rem;">
+        <h2 style="font-size:1.3rem;margin:0 0 0.85rem 0;">Inventario Exacto de Almacenamiento Técnico (`localStorage`)</h2>
+        <p style="color:var(--text-secondary);margin:0 0 1rem 0;">
+          Las preferencias de interfaz y accesibilidad se guardan únicamente de forma local en tu navegador (`window.localStorage`), nunca se envían a servidores propios ni de terceros:
+        </p>
+        <div style="overflow-x:auto;">
+          <table class="policy-table">
+            <thead>
+              <tr>
+                <th>Clave</th>
+                <th>Tipo</th>
+                <th>Finalidad estrictamente funcional</th>
+                <th>Duración</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>jsf_theme</code></td>
+                <td>Técnica</td>
+                <td>Recordar tu elección entre Modo Oscuro y Modo Claro.</td>
+                <td>Persistente hasta borrado</td>
+              </tr>
+              <tr>
+                <td><code>jsf_contrast</code></td>
+                <td>Accesibilidad</td>
+                <td>Mantener activado el modo Alto Contraste (WCAG AAA).</td>
+                <td>Persistente hasta borrado</td>
+              </tr>
+              <tr>
+                <td><code>jsf_font_scale</code></td>
+                <td>Accesibilidad</td>
+                <td>Recordar la escala tipográfica elegida (100%, 112%, 125%).</td>
+                <td>Persistente hasta borrado</td>
+              </tr>
+              <tr>
+                <td><code>jsf_colorblind</code></td>
+                <td>Accesibilidad</td>
+                <td>Conservar el filtro de asistencia para daltonismo seleccionado.</td>
+                <td>Persistente hasta borrado</td>
+              </tr>
+              <tr>
+                <td><code>jsf_dyslexia</code></td>
+                <td>Accesibilidad</td>
+                <td>Recordar el modo de fuente y espaciado para dislexia.</td>
+                <td>Persistente hasta borrado</td>
+              </tr>
+              <tr>
+                <td><code>jsf_reduce_motion</code></td>
+                <td>Accesibilidad</td>
+                <td>Mantener desactivadas las animaciones si lo solicitaste.</td>
+                <td>Persistente hasta borrado</td>
+              </tr>
+              <tr>
+                <td><code>jsf_underline_links</code></td>
+                <td>Accesibilidad</td>
+                <td>Recordar el subrayado reforzado de todos los enlaces.</td>
+                <td>Persistente hasta borrado</td>
+              </tr>
+              <tr>
+                <td><code>jsf_cookie_notice_ack</code></td>
+                <td>Técnica</td>
+                <td>Recordar que ya has cerrado el aviso informativo de cookies.</td>
+                <td>Persistente hasta borrado</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:2rem;">
+        <h2 style="font-size:1.25rem;margin:0 0 0.75rem 0;">Servicios Externos e Infraestructura</h2>
+        <ul class="project-highlights" style="font-size:0.96rem;">
+          <li>
+            <strong>Alojamiento en GitHub Pages:</strong> El sitio estático se sirve a través de GitHub Pages (GitHub, Inc.), que puede registrar logs técnicos estándar de red (IP, cabeceras HTTP) por motivos de seguridad y mitigación DDoS conforme a su política de privacidad.
+          </li>
+          <li>
+            <strong>Tipografías Web (Google Fonts):</strong> Se cargan las fuentes <em>Inter</em> y <em>JetBrains Mono</em> desde los servidores de fuentes de Google sin establecer cookies de seguimiento publicitario desde este dominio.
+          </li>
+          <li>
+            <strong>Enlaces salientes (GitHub, LinkedIn, Global Byte):</strong> Al pulsar un enlace externo abandonarás este sitio y pasarán a aplicarse las políticas de cookies de dichas plataformas.
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2 style="font-size:1.25rem;margin:0 0 0.75rem 0;">Gestión y Borrado de Datos Guardados</h2>
+        <p style="color:var(--text-secondary);margin:0 0 1rem 0;">
+          Puedes eliminar en cualquier momento todas las preferencias almacenadas localmente en tu navegador con un solo clic o desde la configuración de tu navegador (Chrome, Firefox, Safari, Edge).
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center;">
+          <button type="button" id="clear-storage-btn" class="btn-primary">
+            🗑 Borrar datos locales guardados
+          </button>
+          <a href={`mailto:${profile.email}?subject=Privacidad%20y%20Cookies`} class="btn-secondary">
+            ✉ Contacto: {profile.email}
+          </a>
+          <a href="/" class="btn-control">
+            ← Volver al inicio
+          </a>
+        </div>
+        <p id="clear-storage-status" role="status" aria-live="polite" style="margin:0.85rem 0 0 0;font-family:var(--font-mono);font-size:0.86rem;color:var(--accent-emerald);"></p>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      const btn = document.getElementById('clear-storage-btn');
+      const status = document.getElementById('clear-storage-status');
+      if (!btn || !status) return;
+      btn.addEventListener('click', () => {
+        try {
+          const keys = [
+            'jsf_theme',
+            'jsf_contrast',
+            'jsf_font_scale',
+            'jsf_colorblind',
+            'jsf_dyslexia',
+            'jsf_reduce_motion',
+            'jsf_underline_links',
+            'jsf_cookie_notice_ack',
+          ];
+          keys.forEach((k) => localStorage.removeItem(k));
+          status.textContent = '✓ Preferencias locales eliminadas correctamente de tu navegador.';
+        } catch (e) {
+          status.textContent = 'No se pudo acceder a localStorage en este navegador.';
+        }
+      });
+    })();
+  </script>
+</BaseLayout>

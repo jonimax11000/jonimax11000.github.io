@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import profile from '../../data/profile.json';
+
+const title = `Cookie & Local Storage Policy — ${profile.name}`;
+const description =
+  'Cookie and Privacy Policy compliant with EU GDPR, ePrivacy Directive, Spanish LSSI-CE Art. 22.2, and US CCPA/CPRA. This portfolio uses zero tracking or advertising cookies, only strictly functional local storage.';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang="en"
+  canonicalPath="/en/cookies/"
+  alternateEsPath="/cookies/"
+  alternateEnPath="/en/cookies/"
+>
+  <section class="section" aria-labelledby="cookies-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// PRIVACY · GDPR · ePRIVACY · CCPA</span>
+        <h1 id="cookies-heading" class="section-title">
+          Cookie &amp; Local Storage Policy
+        </h1>
+        <p class="section-subtitle">
+          Full privacy transparency: this website is engineered with <strong>privacy by default</strong> and uses <strong>zero tracking, analytics, or advertising cookies</strong>.
+        </p>
+      </div>
+
+      <div class="bento-grid" style="margin-bottom:2rem;">
+        <article class="card">
+          <span class="badge badge-public" style="align-self:flex-start;margin-bottom:0.75rem;">0 Tracking Cookies</span>
+          <h2 style="font-size:1.18rem;margin:0 0 0.65rem 0;">No Behavioral Tracking or Ads</h2>
+          <p style="color:var(--text-secondary);font-size:0.94rem;margin:0;">
+            No third-party marketing, profiling, or invasive analytics cookies (no Google Analytics, Meta Pixel, or ad networks) are ever placed on your device.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="badge badge-featured" style="align-self:flex-start;margin-bottom:0.75rem;">Strictly Functional</span>
+          <h2 style="font-size:1.18rem;margin:0 0 0.65rem 0;">EU &amp; Spanish Legal Basis</h2>
+          <p style="color:var(--text-secondary);font-size:0.94rem;margin:0;">
+            Under the <strong>EU ePrivacy Directive</strong>, <strong>GDPR (EU 2016/679)</strong>, and <strong>Spanish LSSI-CE Art. 22.2</strong>, strictly necessary local storage to preserve user-selected accessibility and theme settings is exempt from ad-consent popups.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="badge badge-lang" style="align-self:flex-start;margin-bottom:0.75rem;">US (CCPA / CPRA)</span>
+          <h2 style="font-size:1.18rem;margin:0 0 0.65rem 0;">No Sale or Sharing of Data</h2>
+          <p style="color:var(--text-secondary);font-size:0.94rem;margin:0;">
+            In compliance with California's <strong>CCPA/CPRA</strong> and U.S. state privacy laws, this website never sells, rents, or shares personal data with third parties.
+          </p>
+        </article>
+      </div>
+
+      <div class="card" style="margin-bottom:2rem;">
+        <h2 style="font-size:1.3rem;margin:0 0 0.85rem 0;">Exact Inventory of Technical Storage (`localStorage`)</h2>
+        <p style="color:var(--text-secondary);margin:0 0 1rem 0;">
+          Interface and accessibility preferences are stored exclusively in your own browser (`window.localStorage`) and are never transmitted to any server:
+        </p>
+        <div style="overflow-x:auto;">
+          <table class="policy-table">
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Category</th>
+                <th>Strictly Functional Purpose</th>
+                <th>Retention</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>jsf_theme</code></td>
+                <td>Technical</td>
+                <td>Remembers your choice between Dark Mode and Light Mode.</td>
+                <td>Until cleared</td>
+              </tr>
+              <tr>
+                <td><code>jsf_contrast</code></td>
+                <td>Accessibility</td>
+                <td>Preserves High Contrast Mode (WCAG AAA).</td>
+                <td>Until cleared</td>
+              </tr>
+              <tr>
+                <td><code>jsf_font_scale</code></td>
+                <td>Accessibility</td>
+                <td>Remembers your selected font scale (100%, 112%, 125%).</td>
+                <td>Until cleared</td>
+              </tr>
+              <tr>
+                <td><code>jsf_colorblind</code></td>
+                <td>Accessibility</td>
+                <td>Preserves your chosen color-vision deficiency filter.</td>
+                <td>Until cleared</td>
+              </tr>
+              <tr>
+                <td><code>jsf_dyslexia</code></td>
+                <td>Accessibility</td>
+                <td>Preserves dyslexia-friendly typography and spacing.</td>
+                <td>Until cleared</td>
+              </tr>
+              <tr>
+                <td><code>jsf_reduce_motion</code></td>
+                <td>Accessibility</td>
+                <td>Keeps animations disabled if requested.</td>
+                <td>Until cleared</td>
+              </tr>
+              <tr>
+                <td><code>jsf_underline_links</code></td>
+                <td>Accessibility</td>
+                <td>Preserves reinforced link underlining.</td>
+                <td>Until cleared</td>
+              </tr>
+              <tr>
+                <td><code>jsf_cookie_notice_ack</code></td>
+                <td>Technical</td>
+                <td>Remembers that you dismissed the cookie information bar.</td>
+                <td>Until cleared</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:2rem;">
+        <h2 style="font-size:1.25rem;margin:0 0 0.75rem 0;">Infrastructure &amp; External Services</h2>
+        <ul class="project-highlights" style="font-size:0.96rem;">
+          <li>
+            <strong>GitHub Pages Hosting:</strong> Static files are served via GitHub Pages (GitHub, Inc.), which may process standard network access logs for security and DDoS protection under GitHub's privacy statement.
+          </li>
+          <li>
+            <strong>Web Typography (Google Fonts):</strong> <em>Inter</em> and <em>JetBrains Mono</em> fonts are requested from Google Fonts CDN without setting advertising or tracking cookies from this domain.
+          </li>
+          <li>
+            <strong>External Links (GitHub, LinkedIn, Global Byte):</strong> Clicking outbound links takes you to third-party platforms governed by their own cookie policies.
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2 style="font-size:1.25rem;margin:0 0 0.75rem 0;">Manage &amp; Delete Saved Browser Data</h2>
+        <p style="color:var(--text-secondary);margin:0 0 1rem 0;">
+          You can clear all locally stored preferences from your browser with one click below or via your browser settings at any time.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center;">
+          <button type="button" id="clear-storage-btn" class="btn-primary">
+            🗑 Clear saved browser data
+          </button>
+          <a href={`mailto:${profile.email}?subject=Privacy%20and%20Cookies`} class="btn-secondary">
+            ✉ Contact: {profile.email}
+          </a>
+          <a href="/en/" class="btn-control">
+            ← Back to home
+          </a>
+        </div>
+        <p id="clear-storage-status" role="status" aria-live="polite" style="margin:0.85rem 0 0 0;font-family:var(--font-mono);font-size:0.86rem;color:var(--accent-emerald);"></p>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      const btn = document.getElementById('clear-storage-btn');
+      const status = document.getElementById('clear-storage-status');
+      if (!btn || !status) return;
+      btn.addEventListener('click', () => {
+        try {
+          const keys = [
+            'jsf_theme',
+            'jsf_contrast',
+            'jsf_font_scale',
+            'jsf_colorblind',
+            'jsf_dyslexia',
+            'jsf_reduce_motion',
+            'jsf_underline_links',
+            'jsf_cookie_notice_ack',
+          ];
+          keys.forEach((k) => localStorage.removeItem(k));
+          status.textContent = '✓ Local browser preferences successfully cleared.';
+        } catch (e) {
+          status.textContent = 'Unable to access localStorage in this browser.';
+        }
+      });
+    })();
+  </script>
+</BaseLayout>

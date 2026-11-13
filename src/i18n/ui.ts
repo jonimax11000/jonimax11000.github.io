@@ -12,6 +12,7 @@ export const ui = {
       allProjects: 'Todos los Proyectos',
       experience: 'Experiencia y Formación',
       accessibility: 'Accesibilidad Legal',
+      cookies: 'Política de Cookies',
     },
     hero: {
       statusBadge: 'Sincronizado diariamente por Jarvis IA',
@@ -110,6 +111,9 @@ export const ui = {
       lastSyncLabel: 'Última actualización verificada:',
       rights: 'Todos los derechos reservados.',
       builtWith: 'Construido con Astro SSG · SEO Técnico & Accesibilidad Legal (EN 301 549 / ADA / WCAG 2.1 AA).',
+      cookieBannerText: 'Sin cookies de rastreo ni publicidad. Solo usamos almacenamiento técnico local para tus preferencias de tema y accesibilidad.',
+      cookieBannerAccept: 'Entendido',
+      cookieBannerPolicy: 'Política de Cookies',
     },
   },
   en: {
@@ -123,6 +127,7 @@ export const ui = {
       allProjects: 'All Projects',
       experience: 'Experience & Education',
       accessibility: 'Legal Accessibility',
+      cookies: 'Cookie Policy',
     },
     hero: {
       statusBadge: 'Synced daily by Jarvis AI',
@@ -221,6 +226,9 @@ export const ui = {
       lastSyncLabel: 'Last verified sync:',
       rights: 'All rights reserved.',
       builtWith: 'Built with Astro SSG · Technical SEO & Legal Accessibility (EN 301 549 / ADA / WCAG 2.1 AA).',
+      cookieBannerText: 'Zero tracking or advertising cookies. We only use strictly functional local storage for your theme and accessibility settings.',
+      cookieBannerAccept: 'Got it',
+      cookieBannerPolicy: 'Cookie Policy',
     },
   },
 } as const;
