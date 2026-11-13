@@ -34,7 +34,9 @@ export const ui = {
       expTitle: 'Experiencia Profesional',
       softSkillsBadge: 'Soft Skills & Liderazgo Operativo',
       techRoleBadge: 'Ingeniería & Desarrollo',
-      eduTitle: 'Formación Académica y Certificaciones',
+      eduTitle: 'Formación Académica',
+      certsTitle: 'Certificaciones Técnicas y Oficiales',
+      certsSubtitle: 'Acreditaciones oficiales en Python, Ciencia de Datos, Inteligencia Artificial, Big Data e Idiomas.',
       linkedinVerified: 'Sincronizado con LinkedIn vía Jarvis',
     },
     featured: {
@@ -143,7 +145,9 @@ export const ui = {
       expTitle: 'Professional Experience',
       softSkillsBadge: 'Soft Skills & Operational Leadership',
       techRoleBadge: 'Software Engineering',
-      eduTitle: 'Academic Education & Certifications',
+      eduTitle: 'Academic Education',
+      certsTitle: 'Technical & Official Certifications',
+      certsSubtitle: 'Official credentials in Python, Data Science, Artificial Intelligence, Big Data, and Languages.',
       linkedinVerified: 'Synced with LinkedIn via Jarvis',
     },
     featured: {
@@ -220,3 +224,4 @@ export const ui = {
     },
   },
 } as const;
+

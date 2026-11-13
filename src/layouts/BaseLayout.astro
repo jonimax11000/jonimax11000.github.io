@@ -97,9 +97,22 @@ const schemaGraph = {
         },
         {
           '@type': 'EducationalOrganization',
+          name: 'Universitat de València (UV)',
+        },
+        {
+          '@type': 'EducationalOrganization',
           name: 'Escuela Oficial de Idiomas (EOI)',
         },
       ],
+      hasCredential: profile.certifications.map((c) => ({
+        '@type': 'EducationalOccupationalCredential',
+        name: c.title[lang],
+        credentialCategory: c.category,
+        recognizedBy: {
+          '@type': 'Organization',
+          name: c.issuer,
+        },
+      })),
     },
     {
       '@type': 'ItemList',
@@ -598,3 +611,4 @@ const schemaGraph = {
     </script>
   </body>
 </html>
+

@@ -28,12 +28,12 @@
     "es": [
       "¿Alguna vez has sentido que la tecnología puede cambiar vidas? Yo lo comprobé trabajando en el instituto de investigación IRTIC, donde ayudé a crear herramientas que unen innovación y aprendizaje humano.",
       "Mi primer gran reto fue un simulador en Realidad Virtual para futuras comadronas, donde practicaban el test neonatal APGAR en un entorno clínico seguro. Después llegó el museo virtual de Santiago Ramón y Cajal en Unity, permitiendo 'pasear' por su legado e incluso proyectarlo en una sala inmersiva CAVE en 3D.",
-      "Hoy combino esa base técnica con el desarrollo de software empresarial y ciencia de datos: graduado en DAM con nota media de 9,05, cofundador de la plataforma de movilidad ecológica EviroCero, desarrollador de módulos avanzados e IA para Odoo 19 en Grup Apunts y creador de Jarvis, mi propio ecosistema agéntico de IA local."
+      "Hoy combino esa base técnica con el desarrollo de software empresarial y ciencia de datos: graduado en DAM (nota media 9,05), actualmente cursando el Curso de Especialización en Inteligencia Artificial y Big Data, con todas las asignaturas del Grado en Ingeniería Multimedia completadas (a falta únicamente del TFG, el Teclado Virtual VR), cofundador de EviroCero, desarrollador de módulos Odoo 19 en Grup Apunts y creador de Jarvis."
     ],
     "en": [
       "Have you ever felt that technology can change lives? I experienced it firsthand while working at the IRTIC research institute, building tools that bridge technical innovation and human learning.",
       "My first major challenge was a Virtual Reality simulator for future midwives to practice the neonatal APGAR test in a safe clinical environment. Next came the Santiago Ramón y Cajal virtual museum in Unity, allowing visitors to walk through his legacy—even inside a 3D immersive CAVE room.",
-      "Today, I combine that foundation with enterprise software engineering and data science: graduated in Multiplatform Application Development (GPA 9.05/10), co-founder of the green-mobility platform EviroCero, Odoo 19 & AI module developer at Grup Apunts, and creator of Jarvis, my own local AI agentic ecosystem."
+      "Today, I combine that foundation with enterprise software engineering and data science: graduated in DAM (GPA 9.05/10), currently enrolled in the Postgraduate Specialization in Artificial Intelligence & Big Data, with all Multimedia Engineering coursework completed (only the Bachelor's Thesis—the VR Virtual Keyboard—remaining), co-founder of EviroCero, Odoo 19 developer at Grup Apunts, and creator of Jarvis."
     ]
   },
   "skillCategories": [
@@ -172,6 +172,22 @@
   "education": [
     {
       "title": {
+        "es": "Curso de Especialización en Inteligencia Artificial y Big Data",
+        "en": "Postgraduate Specialization in Artificial Intelligence & Big Data"
+      },
+      "institution": "IES Jaume II El Just · Formación Profesional (Máster FP)",
+      "period": "2026 – Actualidad",
+      "badge": {
+        "es": "Cursando Actualmente",
+        "en": "Currently Enrolled"
+      },
+      "details": {
+        "es": "Especialización oficial centrada en modelos de Machine Learning, Deep Learning, procesamiento distribuido de Big Data, sistemas expertos, LLMs locales e ingeniería de datos aplicada a producción.",
+        "en": "Official specialization focused on Machine Learning, Deep Learning, distributed Big Data pipelines, expert systems, local LLMs, and production data engineering."
+      }
+    },
+    {
+      "title": {
         "es": "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)",
         "en": "Higher Technician in Multiplatform Application Development (DAM)"
       },
@@ -182,8 +198,90 @@
         "en": "Graduated · GPA: 9.05 / 10"
       },
       "details": {
-        "es": "Formación intensiva en ingeniería de software multiplataforma, microservicios, bases de datos relacionales/NoSQL, despliegue con Docker y proyectos de Inteligencia Artificial y Big Data.",
-        "en": "Intensive training in multiplatform software engineering, microservices, relational/NoSQL databases, Docker deployment, and Artificial Intelligence & Big Data projects."
+        "es": "Formación intensiva en ingeniería de software multiplataforma, microservicios, bases de datos relacionales/NoSQL, despliegue con Docker y desarrollo móvil/backend.",
+        "en": "Intensive training in multiplatform software engineering, microservices, relational/NoSQL databases, Docker deployment, and mobile/backend development."
+      }
+    },
+    {
+      "title": {
+        "es": "Grado en Ingeniería Multimedia",
+        "en": "Bachelor's Degree in Multimedia Engineering"
+      },
+      "institution": "Universitat de València (UV)",
+      "period": "2018 – En pausa (solo TFG pendiente)",
+      "badge": {
+        "es": "A falta únicamente del TFG (Teclado VR)",
+        "en": "Only Thesis (TFG: VR Keyboard) Pending"
+      },
+      "details": {
+        "es": "Asignaturas y base de ingeniería completadas en gráficos por computador, Realidad Virtual/Aumentada, Unity 3D, usabilidad y arquitectura web. Únicamente pendiente la entrega del TFG, correspondiente al proyecto Teclado Virtual VR Multilingüe.",
+        "en": "Coursework and engineering core completed in computer graphics, Virtual/Augmented Reality, Unity 3D, usability, and web architecture. Only the Bachelor's Thesis (TFG) remains pending—corresponding to the Multilingual VR Virtual Keyboard project."
+      }
+    }
+  ],
+  "certifications": [
+    {
+      "title": {
+        "es": "PCAP™ — Certified Associate in Python Programming (PCAP-31-03)",
+        "en": "PCAP™ — Certified Associate in Python Programming (PCAP-31-03)"
+      },
+      "issuer": "Python Institute (OpenEDG)",
+      "category": "Python & Software Engineering",
+      "badge": {
+        "es": "Certificación Oficial · Associate",
+        "en": "Official Certification · Associate"
+      },
+      "details": {
+        "es": "Acreditación profesional en programación orientada a objetos, módulos, paquetes, manejo avanzado de excepciones, generadores y closures en Python.",
+        "en": "Professional credential validating object-oriented programming, modules, packages, advanced exception handling, generators, and closures in Python."
+      }
+    },
+    {
+      "title": {
+        "es": "PCEP™ — Certified Entry-Level Python Programmer (PCEP-30-02)",
+        "en": "PCEP™ — Certified Entry-Level Python Programmer (PCEP-30-02)"
+      },
+      "issuer": "Python Institute (OpenEDG)",
+      "category": "Python & Software Engineering",
+      "badge": {
+        "es": "Certificación Oficial · Entry-Level",
+        "en": "Official Certification · Entry-Level"
+      },
+      "details": {
+        "es": "Certificación internacional sobre fundamentos algorítmicos, estructuras de datos, control de flujo y funciones en Python.",
+        "en": "International certification covering algorithmic foundations, data structures, control flow, and functions in Python."
+      }
+    },
+    {
+      "title": {
+        "es": "Pandas & Data Visualization",
+        "en": "Pandas & Data Visualization"
+      },
+      "issuer": "Kaggle",
+      "category": "Data Science & Analytics",
+      "badge": {
+        "es": "Verificado · Kaggle 2026",
+        "en": "Verified · Kaggle 2026"
+      },
+      "details": {
+        "es": "Manipulación avanzada de datasets, análisis exploratorio, series temporales y visualización estadística con Pandas y Seaborn.",
+        "en": "Advanced dataset manipulation, exploratory data analysis, time-series processing, and statistical visualization with Pandas and Seaborn."
+      }
+    },
+    {
+      "title": {
+        "es": "Especialización en Big Data, NumPy con Python e Inteligencia Artificial",
+        "en": "Big Data, NumPy with Python & Artificial Intelligence Foundations"
+      },
+      "issuer": "Formación Técnica Acreditada",
+      "category": "AI & Big Data",
+      "badge": {
+        "es": "4 Certificados Completados",
+        "en": "4 Completed Certificates"
+      },
+      "details": {
+        "es": "Certificaciones en arquitectura Big Data, cálculo numérico vectorial con NumPy en Python, Fundamentos de IA e Introducción a la Inteligencia Artificial.",
+        "en": "Certifications in Big Data architectures, vectorized numerical computing with NumPy in Python, AI Foundations, and Introduction to Artificial Intelligence."
       }
     },
     {
@@ -191,32 +289,17 @@
         "es": "Certificación Oficial de Inglés — Nivel B2.2",
         "en": "Official English Certification — Level B2.2 (CEFR)"
       },
-      "institution": "Escuela Oficial de Idiomas (EOI)",
-      "period": "2024 – Actualidad",
+      "issuer": "Escuela Oficial de Idiomas (EOI)",
+      "category": "Languages",
       "badge": {
         "es": "B2.2 · Competencia Profesional",
         "en": "B2.2 · Professional Proficiency"
       },
       "details": {
-        "es": "Comunicación fluida oral y escrita orientada a entornos internacionales y documentación técnica.",
-        "en": "Fluent spoken and written communication tailored for international teams and technical documentation."
-      }
-    },
-    {
-      "title": {
-        "es": "Certificaciones en Ciencia de Datos: Pandas & Data Visualization",
-        "en": "Data Science Certifications: Pandas & Data Visualization"
-      },
-      "institution": "Kaggle",
-      "period": "2026",
-      "badge": {
-        "es": "Verificado · Data Science",
-        "en": "Verified · Data Science"
-      },
-      "details": {
-        "es": "Manipulación avanzada de datos tabulares, limpieza de series temporales y visualización estadística con Python, Pandas y Seaborn.",
-        "en": "Advanced tabular data manipulation, time-series cleaning, and statistical visualization using Python, Pandas, and Seaborn."
+        "es": "Acreditación oficial de comunicación oral y escrita fluida para equipos internacionales y documentación técnica.",
+        "en": "Official accreditation for fluent spoken and written communication in international engineering teams and technical documentation."
       }
     }
   ]
 }
+

@@ -191,7 +191,7 @@ const staticCatalogBase = lang === 'es' ? '/proyectos' : '/en/projects';
     </div>
 
     <h3 style="font-size:1.5rem;margin:0 0 1.25rem 0;">{t.about.eduTitle}</h3>
-    <div class="bento-grid">
+    <div class="bento-grid" style="margin-bottom:3.25rem;">
       {profile.education.map((edu) => (
         <article class="card">
           <div class="badge-row">
@@ -207,6 +207,28 @@ const staticCatalogBase = lang === 'es' ? '/proyectos' : '/en/projects';
           </p>
         </article>
       ))}
+    </div>
+
+    <div id="certificaciones" style="scroll-margin-top:5rem;">
+      <h3 style="font-size:1.5rem;margin:0 0 0.45rem 0;">{t.about.certsTitle}</h3>
+      <p style="color:var(--text-secondary);margin:0 0 1.35rem 0;">{t.about.certsSubtitle}</p>
+      <div class="bento-grid">
+        {profile.certifications.map((cert) => (
+          <article class="card">
+            <div class="badge-row">
+              <span class="badge badge-featured">{cert.badge[lang]}</span>
+              <span class="badge badge-lang">{cert.category}</span>
+            </div>
+            <h4 style="font-size:1.06rem;margin:0 0 0.35rem 0;">{cert.title[lang]}</h4>
+            <p style="font-family:var(--font-mono);font-size:0.83rem;color:var(--accent-emerald);margin:0 0 0.75rem 0;">
+              {cert.issuer}
+            </p>
+            <p style="font-size:0.92rem;color:var(--text-secondary);margin:0;">
+              {cert.details[lang]}
+            </p>
+          </article>
+        ))}
+      </div>
     </div>
   </div>
 </section>
@@ -471,3 +493,4 @@ const staticCatalogBase = lang === 'es' ? '/proyectos' : '/en/projects';
     renderCatalog(false);
   })();
 </script>
+

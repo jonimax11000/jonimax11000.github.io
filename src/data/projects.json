@@ -101,8 +101,8 @@
       ],
       "branches": ["main"],
       "summary": {
-        "es": "Teclado virtual 3D para Realidad Virtual y Mixta desarrollado en Unity y C# con motores propios de composición silábica y contextual en tiempo real. Soporta escritura en alfabeto coreano (composición matemática de bloques silábicos Hangul Unicode 0xAC00), árabe (formas contextuales aislada, inicial, media y final + ligaduras y renderizado RTL), chino (base de datos Pinyin) y diacríticos latinos.",
-        "en": "3D Virtual & Mixed Reality keyboard built in Unity and C# featuring custom real-time syllabic and contextual script composition engines. Supports Korean (mathematical Hangul Unicode 0xAC00 jamo block synthesis), Arabic (isolated, initial, medial, and final contextual glyph forms + ligatures and RTL rendering), Chinese (Pinyin database), and Latin diacritics."
+        "es": "Teclado virtual 3D para Realidad Virtual y Mixta (Trabajo Final de Grado en Ingeniería Multimedia) desarrollado en Unity y C# con motores propios de composición silábica y contextual en tiempo real. Soporta escritura en alfabeto coreano (composición matemática de bloques silábicos Hangul Unicode 0xAC00), árabe (formas contextuales aislada, inicial, media y final + ligaduras y renderizado RTL), chino (base de datos Pinyin) y diacríticos latinos.",
+        "en": "3D Virtual & Mixed Reality keyboard (Multimedia Engineering Bachelor's Thesis / TFG) built in Unity and C# featuring custom real-time syllabic and contextual script composition engines. Supports Korean (mathematical Hangul Unicode 0xAC00 jamo block synthesis), Arabic (isolated, initial, medial, and final contextual glyph forms + ligatures and RTL rendering), Chinese (Pinyin database), and Latin diacritics."
       },
       "highlights": {
         "es": [
@@ -643,3 +643,4 @@
     }
   ]
 }
+
