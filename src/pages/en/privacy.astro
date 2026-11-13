@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import profile from '../../data/profile.json';
+
+const title = `Legal Notice & Global Privacy Policy (EU, UK, South America & US) — ${profile.name}`;
+const description =
+  'Comprehensive Legal Notice and Privacy Policy compliant with EU GDPR, LOPDGDD & LSSI-CE (Spain), UK GDPR & DPA 2018 (UK), LGPD (Brazil) & South American data laws, and US CCPA/CPRA/COPPA.';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang="en"
+  canonicalPath="/en/privacy/"
+  alternateEsPath="/privacidad/"
+  alternateEnPath="/en/privacy/"
+>
+  <section class="section" aria-labelledby="privacy-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// LEGAL NOTICE · GLOBAL PRIVACY COMPLIANCE</span>
+        <h1 id="privacy-heading" class="section-title">
+          Legal Notice &amp; Global Privacy Policy
+        </h1>
+        <p class="section-subtitle">
+          International legal compliance covering the European Union, United Kingdom, South America, and the United States. This portfolio is a static website with zero capture forms, zero user databases, and zero external trackers.
+        </p>
+      </div>
+
+      <!-- 1. Controller Identification -->
+      <div class="card" style="margin-bottom:2rem;">
+        <h2 style="font-size:1.3rem;margin:0 0 0.75rem 0;">1. Website Owner &amp; Data Controller (LSSI-CE Art. 10 / GDPR Art. 13)</h2>
+        <ul class="project-highlights" style="font-size:0.96rem;margin-bottom:0;">
+          <li><strong>Owner &amp; Data Controller:</strong> {profile.name} (<code>@{profile.handle}</code>)</li>
+          <li><strong>Location:</strong> {profile.location.en}</li>
+          <li><strong>Contact Email &amp; Rights Requests:</strong> <a href={`mailto:${profile.email}`} style="color:var(--accent-cyan);">{profile.email}</a></li>
+          <li><strong>Domain:</strong> <code>https://jonimax11000.github.io</code> (Informational personal software engineering portfolio with no direct e-commerce or paid transactions).</li>
+        </ul>
+      </div>
+
+      <!-- 2. Regional Privacy Frameworks -->
+      <div class="bento-grid" style="margin-bottom:2rem;">
+        <article class="card">
+          <span class="badge badge-featured" style="align-self:flex-start;margin-bottom:0.75rem;">European Union &amp; Spain</span>
+          <h2 style="font-size:1.15rem;margin:0 0 0.6rem 0;">EU GDPR, LOPDGDD &amp; LSSI-CE</h2>
+          <p style="color:var(--text-secondary);font-size:0.92rem;margin:0;">
+            Compliant with <strong>Regulation (EU) 2016/679 (GDPR)</strong>, Spain's <strong>LOPDGDD (Organic Law 3/2018)</strong>, <strong>LSSI-CE (Law 34/2002)</strong>, and the <strong>ePrivacy Directive</strong>. Full rights of access, rectification, erasure, restriction, objection, and portability (supervisory authority: <strong>AEPD</strong>). Web fonts are self-hosted locally—zero IP transmission to external Google Fonts CDNs.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="badge badge-public" style="align-self:flex-start;margin-bottom:0.75rem;">United Kingdom (UK)</span>
+          <h2 style="font-size:1.15rem;margin:0 0 0.6rem 0;">UK GDPR, DPA 2018 &amp; PECR</h2>
+          <p style="color:var(--text-secondary);font-size:0.92rem;margin:0;">
+            Aligned with the <strong>UK General Data Protection Regulation (UK GDPR)</strong>, the <strong>Data Protection Act 2018</strong>, and the <strong>Privacy and Electronic Communications Regulations (PECR)</strong>, recognizing the oversight of the <strong>Information Commissioner's Office (ICO)</strong>.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="badge badge-lang" style="align-self:flex-start;margin-bottom:0.75rem;">United States (USA)</span>
+          <h2 style="font-size:1.15rem;margin:0 0 0.6rem 0;">CCPA/CPRA, State Laws &amp; COPPA</h2>
+          <p style="color:var(--text-secondary);font-size:0.92rem;margin:0;">
+            Compliant with California's <strong>CCPA/CPRA</strong>, Virginia's <strong>VCDPA</strong>, Colorado's <strong>CPA</strong>, Connecticut's <strong>CTDPA</strong>, and Texas's <strong>TDPSA</strong>: <strong>we do not sell or share personal information</strong> and never discriminate for exercising privacy rights. Per <strong>COPPA</strong>, this site is not directed at children under 13.
+          </p>
+        </article>
+      </div>
+
+      <!-- 3. South America -->
+      <div class="card" style="margin-bottom:2rem;">
+        <h2 style="font-size:1.3rem;margin:0 0 0.85rem 0;">2. South American Data Protection Compliance</h2>
+        <p style="color:var(--text-secondary);margin:0 0 0.85rem 0;">
+          For visitors from South America, this website adheres to the lawfulness, minimization, purpose limitation, and transparency principles established across regional frameworks:
+        </p>
+        <ul class="project-highlights" style="font-size:0.95rem;margin-bottom:0;">
+          <li><strong>Brazil — LGPD (Lei Geral de Proteção de Dados, Law No. 13.709/2018):</strong> Full respect for data subject rights under Art. 18 (confirmation, access, correction, anonymization, deletion, and consent revocation) under <strong>ANPD</strong> oversight.</li>
+          <li><strong>Argentina — Law 25.326 on Personal Data Protection:</strong> Guaranteed rights of access, rectification, and deletion before the <strong>AAIP</strong>.</li>
+          <li><strong>Colombia — Statutory Law 1581 of 2012 (Habeas Data) &amp; Decree 1377 of 2013:</strong> Prior authorization principle and recognition of the <strong>SIC</strong> supervisory authority.</li>
+          <li><strong>Chile — Law 19.628 &amp; Law 21.719 Reform:</strong> Protection of personal privacy and informational self-determination for any voluntary email correspondence.</li>
+          <li><strong>Peru (Law 29733), Uruguay (Law 18.331) &amp; Ecuador (LOPDP):</strong> Strict data minimization, transparency, and free direct channels for exercising ARCO rights.</li>
+        </ul>
+      </div>
+
+      <!-- 4. Actual Data Processing & Infrastructure -->
+      <div class="card" style="margin-bottom:2rem;">
+        <h2 style="font-size:1.3rem;margin:0 0 0.85rem 0;">3. Data Processing, Hosting &amp; Intellectual Property</h2>
+        <ul class="project-highlights" style="font-size:0.95rem;margin-bottom:0;">
+          <li><strong>Voluntary Email Contact:</strong> This website has no web forms or user databases. If you voluntarily email <code>{profile.email}</code>, your message is used solely to reply to your professional or recruitment inquiry (lawful basis: consent / pre-contractual steps) and deleted upon request or once no longer needed.</li>
+          <li><strong>GitHub Pages Hosting:</strong> Static assets are delivered via GitHub Pages (GitHub, Inc.), which may process standard technical network logs (IP address, HTTP headers) strictly for security, uptime, and DDoS mitigation.</li>
+          <li><strong>Self-Hosted Local Typography (Zero External Leak):</strong> <em>Inter</em> and <em>JetBrains Mono</em> fonts are bundled and self-hosted directly within this repository; your browser makes <strong>zero requests to third-party font CDNs</strong>.</li>
+          <li><strong>Intellectual Property &amp; Private Repositories:</strong> Portfolio content and design belong to {profile.name}. Public projects link to their GitHub licenses; repositories marked <em>Private</em> display descriptive metadata only, with zero source code or repository URLs exposed.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2 style="font-size:1.25rem;margin:0 0 0.75rem 0;">4. Legal Contact &amp; Rights Requests</h2>
+        <p style="color:var(--text-secondary);margin:0 0 1rem 0;">
+          To exercise any data protection or privacy right (access, rectification, erasure, objection, portability, or legal inquiry), please contact:
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
+          <a href={`mailto:${profile.email}?subject=Legal%20or%20Privacy%20Inquiry`} class="btn-primary">
+            ✉ {profile.email}
+          </a>
+          <a href="/en/cookies/" class="btn-secondary">Cookie Policy</a>
+          <a href="/en/accessibility/" class="btn-secondary">Legal Accessibility</a>
+          <a href="/en/" class="btn-control">← Back to home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

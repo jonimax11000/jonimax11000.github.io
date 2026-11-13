@@ -13,6 +13,7 @@ export const ui = {
       experience: 'Experiencia y Formación',
       accessibility: 'Accesibilidad Legal',
       cookies: 'Política de Cookies',
+      privacy: 'Privacidad y Aviso Legal',
     },
     hero: {
       statusBadge: 'Sincronizado diariamente por Jarvis IA',
@@ -128,6 +129,7 @@ export const ui = {
       experience: 'Experience & Education',
       accessibility: 'Legal Accessibility',
       cookies: 'Cookie Policy',
+      privacy: 'Privacy & Legal Notice',
     },
     hero: {
       statusBadge: 'Synced daily by Jarvis AI',

@@ -1,4 +1,13 @@
 ---
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
+import '@fontsource/inter/800.css';
+import '@fontsource/jetbrains-mono/500.css';
+import '@fontsource/jetbrains-mono/600.css';
+import '@fontsource/jetbrains-mono/700.css';
+import '@fontsource/jetbrains-mono/800.css';
 import '../styles/global.css';
 import { ui, type Lang } from '../i18n/ui';
 import profile from '../data/profile.json';
@@ -37,6 +46,7 @@ const homePath = lang === 'es' ? '/' : '/en/';
 const catalogPath = lang === 'es' ? '/proyectos/1/' : '/en/projects/1/';
 const a11yPagePath = lang === 'es' ? '/accesibilidad/' : '/en/accessibility/';
 const cookiesPagePath = lang === 'es' ? '/cookies/' : '/en/cookies/';
+const privacyPagePath = lang === 'es' ? '/privacidad/' : '/en/privacy/';
 
 // Structured Data JSON-LD (Schema.org: ProfilePage + Person + WebSite + SoftwareSourceCode ItemList)
 const schemaGraph = {
@@ -178,13 +188,7 @@ const schemaGraph = {
     <meta property="profile:last_name" content="Signes Falcó" />
     <meta property="profile:username" content={profile.handle} />
 
-    <!-- Google Fonts: Inter & JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Self-hosted Inter & JetBrains Mono fonts bundled locally (Zero external CDN tracking / GDPR compliant) -->
 
     <!-- Pre-render Theme & Accessibility Preferences (Prevents FOUC) -->
     <script is:inline>
@@ -475,8 +479,9 @@ const schemaGraph = {
             <a href={profile.githubUrl} target="_blank" rel="noopener noreferrer" class="btn-control">GitHub</a>
             <a href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer" class="btn-control">LinkedIn</a>
             <a href={`mailto:${profile.email}`} class="btn-control">Email</a>
-            <a href={a11yPagePath} class="btn-control">{t.nav.accessibility}</a>
+            <a href={privacyPagePath} class="btn-control">{t.nav.privacy}</a>
             <a href={cookiesPagePath} class="btn-control">{t.nav.cookies}</a>
+            <a href={a11yPagePath} class="btn-control">{t.nav.accessibility}</a>
           </div>
         </div>
         <div style="border-top:1px solid var(--border-subtle);padding-top:1rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:0.75rem;font-size:0.82rem;color:var(--text-muted);">

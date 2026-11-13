@@ -2,9 +2,9 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import profile from '../../data/profile.json';
 
-const title = `Legal Accessibility Statement (EU & US Law) — ${profile.name}`;
+const title = `Legal Accessibility Statement (EU, UK, South America & US Law) — ${profile.name}`;
 const description =
-  'Official web accessibility conformance statement compliant with European Union law (EN 301 549, EU Directive 2016/2102, European Accessibility Act EAA, Spanish RD 1112/2018) and United States federal law (ADA Title III, Section 508) under WCAG 2.1 / 2.2 Level AA.';
+  'Official web accessibility conformance statement compliant with European Union (EN 301 549, EAA, RD 1112/2018), United Kingdom (Equality Act 2010, PSBAR), South American (Brazil LBI, Argentina Law 26.653, Colombia Res. 1519), and US (ADA Title III, Section 508) standards under WCAG 2.1 / 2.2 AA.';
 ---
 
 <BaseLayout
@@ -18,37 +18,37 @@ const description =
   <section class="section" aria-labelledby="a11y-legal-heading">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">// EU &amp; US LEGAL COMPLIANCE</span>
+        <span class="section-tag">// EU · UK · SOUTH AMERICA · US LEGAL COMPLIANCE</span>
         <h1 id="a11y-legal-heading" class="section-title">
           Accessibility &amp; Legal Conformance Statement
         </h1>
         <p class="section-subtitle">
-          Universal accessibility commitment compliant with European Union, Spanish, and United States regulations.
+          Universal accessibility commitment compliant with European Union, United Kingdom, South American, and United States regulations.
         </p>
       </div>
 
       <div class="bento-grid" style="margin-bottom:2rem;">
         <article class="card">
-          <span class="badge badge-featured" style="align-self:flex-start;margin-bottom:0.75rem;">European Union &amp; Spain</span>
-          <h2 style="font-size:1.2rem;margin:0 0 0.65rem 0;">EU Standards (EN 301 549 &amp; EAA)</h2>
+          <span class="badge badge-featured" style="align-self:flex-start;margin-bottom:0.75rem;">EU, Spain &amp; UK</span>
+          <h2 style="font-size:1.2rem;margin:0 0 0.65rem 0;">EN 301 549, EAA &amp; UK Equality Act</h2>
           <p style="color:var(--text-secondary);font-size:0.94rem;margin:0;">
-            Engineered in accordance with the harmonized European standard <strong>EN 301 549 v3.2.1</strong>, <strong>Directive (EU) 2016/2102</strong>, the <strong>European Accessibility Act (Directive EU 2019/882 - EAA)</strong>, and Spain's <strong>Royal Decree 1112/2018</strong>.
+            Engineered to meet <strong>EN 301 549 v3.2.1</strong>, <strong>Directive (EU) 2016/2102</strong>, the <strong>European Accessibility Act (EU 2019/882)</strong>, and Spain's <strong>RD 1112/2018</strong>, plus the UK <strong>Equality Act 2010</strong> and <strong>PSBAR 2018</strong>.
           </p>
         </article>
 
         <article class="card">
-          <span class="badge badge-public" style="align-self:flex-start;margin-bottom:0.75rem;">United States (USA)</span>
-          <h2 style="font-size:1.2rem;margin:0 0 0.65rem 0;">ADA Title III &amp; Section 508</h2>
+          <span class="badge badge-public" style="align-self:flex-start;margin-bottom:0.75rem;">South America (LATAM)</span>
+          <h2 style="font-size:1.2rem;margin:0 0 0.65rem 0;">Brazil LBI, Argentina, Colombia &amp; Region</h2>
           <p style="color:var(--text-secondary);font-size:0.94rem;margin:0;">
-            Conforms to digital accessibility mandates under the U.S. Department of Justice <strong>Americans with Disabilities Act (ADA Title III)</strong> and <strong>Section 508 of the Rehabilitation Act (29 U.S.C. § 794d)</strong>.
+            Aligned with Brazil's <strong>Lei Brasileira de Inclusão (Law 13.146/2015, Art. 63)</strong> &amp; eMAG, Argentina's <strong>Law 26.653</strong>, Colombia's <strong>Resolution 1519/2020</strong>, Chile's <strong>Law 20.422</strong>, Peru's <strong>Law 29973</strong>, and Uruguay's <strong>Decree 406/022</strong>.
           </p>
         </article>
 
         <article class="card">
-          <span class="badge badge-lang" style="align-self:flex-start;margin-bottom:0.75rem;">W3C WAI Standard</span>
-          <h2 style="font-size:1.2rem;margin:0 0 0.65rem 0;">WCAG 2.1 / 2.2 Level AA &amp; AAA</h2>
+          <span class="badge badge-lang" style="align-self:flex-start;margin-bottom:0.75rem;">United States &amp; W3C</span>
+          <h2 style="font-size:1.2rem;margin:0 0 0.65rem 0;">ADA Title III, Section 508 &amp; WCAG 2.2 AA</h2>
           <p style="color:var(--text-secondary);font-size:0.94rem;margin:0;">
-            Full conformance with the Web Content Accessibility Guidelines (<strong>WCAG 2.1 and 2.2 Level AA</strong>), plus optional <strong>Level AAA</strong> high-contrast and color-vision deficiency filters.
+            Conforms to U.S. Department of Justice <strong>ADA Title III</strong> and <strong>Section 508 (29 U.S.C. § 794d)</strong> under <strong>WCAG 2.1 / 2.2 Level AA</strong>, with optional <strong>Level AAA</strong> high contrast.
           </p>
         </article>
       </div>
@@ -94,3 +94,4 @@ const description =
     </div>
   </section>
 </BaseLayout>
+

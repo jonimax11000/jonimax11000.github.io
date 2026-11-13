@@ -2,9 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import profile from '../data/profile.json';
 
-const title = `Declaración de Accesibilidad Legal (UE & EE. UU.) — ${profile.name}`;
+const title = `Declaración de Accesibilidad Legal (UE, UK, Sudamérica y EE. UU.) — ${profile.name}`;
 const description =
-  'Declaración de conformidad en accesibilidad web conforme a la normativa europea (EN 301 549, Directiva UE 2016/2102, European Accessibility Act EAA, RD 1112/2018) y estadounidense (ADA Title III, Section 508) bajo estándares WCAG 2.1 / 2.2 Nivel AA.';
+  'Declaración de conformidad en accesibilidad web conforme a la normativa europea (EN 301 549, EAA, RD 1112/2018), Reino Unido (Equality Act 2010 / PSBAR), Sudamérica (LBI Brasil, Ley 26.653 Argentina, Res. 1519 Colombia, Chile, Perú) y EE. UU. (ADA Title III, Section 508) bajo estándares WCAG 2.1 / 2.2 Nivel AA.';
 ---
 
 <BaseLayout
@@ -18,37 +18,37 @@ const description =
   <section class="section" aria-labelledby="a11y-legal-heading">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">// CUMPLIMIENTO NORMATIVO UE &amp; EE. UU.</span>
+        <span class="section-tag">// CUMPLIMIENTO NORMATIVO UE · UK · SUDAMÉRICA · EE. UU.</span>
         <h1 id="a11y-legal-heading" class="section-title">
           Declaración de Accesibilidad y Conformidad Legal
         </h1>
         <p class="section-subtitle">
-          Compromiso de accesibilidad universal conforme a la legislación de la Unión Europea, España y los Estados Unidos de América.
+          Compromiso de accesibilidad universal conforme a la legislación de la Unión Europea, España, Reino Unido, Sudamérica y Estados Unidos.
         </p>
       </div>
 
       <div class="bento-grid" style="margin-bottom:2rem;">
         <article class="card">
-          <span class="badge badge-featured" style="align-self:flex-start;margin-bottom:0.75rem;">Unión Europea &amp; España</span>
-          <h2 style="font-size:1.2rem;margin:0 0 0.65rem 0;">Normativa Europea (EN 301 549 &amp; EAA)</h2>
+          <span class="badge badge-featured" style="align-self:flex-start;margin-bottom:0.75rem;">UE, España &amp; Reino Unido</span>
+          <h2 style="font-size:1.2rem;margin:0 0 0.65rem 0;">EN 301 549, EAA &amp; Equality Act (UK)</h2>
           <p style="color:var(--text-secondary);font-size:0.94rem;margin:0;">
-            Este sitio web ha sido diseñado siguiendo los requisitos técnicos de la norma armonizada europea <strong>EN 301 549 v3.2.1</strong>, la <strong>Directiva (UE) 2016/2102</strong>, el <strong>Acta Europea de Accesibilidad (Directiva UE 2019/882 - EAA)</strong> y el <strong>Real Decreto 1112/2018</strong> en España.
+            Diseñado según la norma armonizada <strong>EN 301 549 v3.2.1</strong>, <strong>Directiva (UE) 2016/2102</strong>, <strong>European Accessibility Act (UE 2019/882)</strong> y <strong>RD 1112/2018</strong> en España, así como la <strong>Equality Act 2010</strong> y <strong>PSBAR 2018</strong> en Reino Unido.
           </p>
         </article>
 
         <article class="card">
-          <span class="badge badge-public" style="align-self:flex-start;margin-bottom:0.75rem;">Estados Unidos (USA)</span>
-          <h2 style="font-size:1.2rem;margin:0 0 0.65rem 0;">ADA Title III &amp; Section 508</h2>
+          <span class="badge badge-public" style="align-self:flex-start;margin-bottom:0.75rem;">Sudamérica (LATAM)</span>
+          <h2 style="font-size:1.2rem;margin:0 0 0.65rem 0;">LBI (Brasil), Ley 26.653 (Arg.), MinTIC (Col.)</h2>
           <p style="color:var(--text-secondary);font-size:0.94rem;margin:0;">
-            Cumple con las directrices de accesibilidad digital exigidas por la <strong>Americans with Disabilities Act (ADA Title III)</strong> del Departamento de Justicia de EE. UU. y la <strong>Section 508 of the Rehabilitation Act (29 U.S.C. § 794d)</strong>.
+            Alineado con la <strong>Lei Brasileira de Inclusão (LBI - Lei 13.146/2015, Art. 63)</strong> y eMAG (Brasil), la <strong>Ley 26.653</strong> (Argentina), la <strong>Resolución 1519/2020</strong> (Colombia), <strong>Ley 20.422</strong> (Chile), <strong>Ley 29973</strong> (Perú) y <strong>Decreto 406/022</strong> (Uruguay).
           </p>
         </article>
 
         <article class="card">
-          <span class="badge badge-lang" style="align-self:flex-start;margin-bottom:0.75rem;">W3C WAI Standard</span>
-          <h2 style="font-size:1.2rem;margin:0 0 0.65rem 0;">WCAG 2.1 / 2.2 Nivel AA &amp; AAA</h2>
+          <span class="badge badge-lang" style="align-self:flex-start;margin-bottom:0.75rem;">Estados Unidos &amp; W3C</span>
+          <h2 style="font-size:1.2rem;margin:0 0 0.65rem 0;">ADA Title III, Section 508 &amp; WCAG 2.2 AA</h2>
           <p style="color:var(--text-secondary);font-size:0.94rem;margin:0;">
-            Conformidad plena con las Pautas de Accesibilidad para el Contenido Web (<strong>WCAG 2.1 y 2.2 Nivel AA</strong>), incluyendo modos opcionales de contraste reforzado <strong>Nivel AAA</strong> y asistencia cromática.
+            Cumple con <strong>ADA Title III</strong> y <strong>Section 508 (29 U.S.C. § 794d)</strong> en EE. UU., garantizando conformidad <strong>WCAG 2.1 / 2.2 Nivel AA</strong> y modos opcionales <strong>Nivel AAA</strong>.
           </p>
         </article>
       </div>
@@ -94,3 +94,4 @@ const description =
     </div>
   </section>
 </BaseLayout>
+
