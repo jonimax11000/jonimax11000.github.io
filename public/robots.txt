@@ -2,6 +2,6 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://jonimax11000.github.io/sitemap-index.xml
-Sitemap: https://jonimax11000.github.io/sitemap-0.xml
+Sitemap: https://jonimax11000.com/sitemap-index.xml
+Sitemap: https://jonimax11000.com/sitemap-0.xml
 
