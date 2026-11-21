@@ -14,7 +14,7 @@
     "es": "Disponible · Presencial, Híbrido o Remoto",
     "en": "Open to Work · On-site, Hybrid or Remote"
   },
-  "lastUpdated": "2026-11-13T18:00:00Z",
+  "lastUpdated": "2026-11-21T11:39:45Z",
   "syncedBy": "Jarvis Portfolio Sync Engine",
   "headline": {
     "es": "Ingeniero de Software especializado en Python, Odoo ERP, Inteligencia Artificial, Big Data y Realidad Virtual",
@@ -43,7 +43,17 @@
         "es": "IA, Big Data & Python",
         "en": "AI, Big Data & Python"
       },
-      "skills": ["Python", "LLMs Locales (Ollama)", "Agentes MCP", "Pandas", "Scikit-Learn", "Seaborn", "Jupyter", "Playwright", "SQLite AES"]
+      "skills": [
+        "Python",
+        "LLMs Locales (Ollama)",
+        "Agentes MCP",
+        "Pandas",
+        "Scikit-Learn",
+        "Seaborn",
+        "Jupyter",
+        "Playwright",
+        "SQLite AES"
+      ]
     },
     {
       "id": "erp-backend",
@@ -51,7 +61,16 @@
         "es": "Odoo ERP, Backend & Cloud",
         "en": "Odoo ERP, Backend & Cloud"
       },
-      "skills": ["Odoo (v17–v19)", "PostgreSQL / PostGIS", "Spring Boot (Java)", "Node.js / Express", "REST APIs & JWT", "WebSockets", "Docker & Nginx", "MongoDB"]
+      "skills": [
+        "Odoo (v17–v19)",
+        "PostgreSQL / PostGIS",
+        "Spring Boot (Java)",
+        "Node.js / Express",
+        "REST APIs & JWT",
+        "WebSockets",
+        "Docker & Nginx",
+        "MongoDB"
+      ]
     },
     {
       "id": "multiplatform-xr",
@@ -59,7 +78,16 @@
         "es": "Multiplataforma, Frontend & XR",
         "en": "Multiplatform, Frontend & XR"
       },
-      "skills": ["Flutter / Dart", "Unity 3D / C#", "OpenXR & MRTK", "CAVE 3D", "ShaderLab / HLSL", "Vue.js & Astro", "TypeScript / JS", "Web Components"]
+      "skills": [
+        "Flutter / Dart",
+        "Unity 3D / C#",
+        "OpenXR & MRTK",
+        "CAVE 3D",
+        "ShaderLab / HLSL",
+        "Vue.js & Astro",
+        "TypeScript / JS",
+        "Web Components"
+      ]
     }
   ],
   "experience": [
@@ -82,7 +110,17 @@
         "es": "Diseño y desarrollo de una plataforma integral para la transición ecológica en el transporte urbano y navegación en Zonas de Bajas Emisiones (ZBE). Integración con Odoo ERP, motor de rutas dinámicas (GraphHopper/Photon), backend en Spring Boot y Node.js, y aplicación móvil multiplataforma en Flutter.",
         "en": "Design and engineering of a comprehensive platform for urban green mobility and Low Emission Zone (LEZ/ZBE) navigation. Built Odoo ERP integration, dynamic routing engine (GraphHopper/Photon), Spring Boot & Node.js microservices, and a cross-platform Flutter mobile app."
       },
-      "technologies": ["Odoo ERP", "Python", "Flutter", "Spring Boot", "Node.js", "GraphHopper", "PostgreSQL", "Docker", "Nginx"]
+      "technologies": [
+        "Odoo ERP",
+        "Python",
+        "Flutter",
+        "Spring Boot",
+        "Node.js",
+        "GraphHopper",
+        "PostgreSQL",
+        "Docker",
+        "Nginx"
+      ]
     },
     {
       "role": {
@@ -103,7 +141,14 @@
         "es": "Desarrollo en el equipo de ingeniería de Odoo 19.0 creando suites verticales como Cookast (previsiones, compras, escandallos MRP, TPV y turnos RRHH), integración de IA local para predicción de demanda y detección de anomalías de foodcost, y optimización de bases de datos PostgreSQL.",
         "en": "Engineered custom Odoo 19.0 vertical suites including Cookast (forecasting, purchasing, MRP BOM, POS and HR shift planning), local AI integration for demand prediction and food-cost anomaly detection, and PostgreSQL optimization."
       },
-      "technologies": ["Odoo 19.0", "Python", "PostgreSQL", "XML / QWeb", "IA Predictiva", "JavaScript"]
+      "technologies": [
+        "Odoo 19.0",
+        "Python",
+        "PostgreSQL",
+        "XML / QWeb",
+        "IA Predictiva",
+        "JavaScript"
+      ]
     },
     {
       "role": {
@@ -124,7 +169,14 @@
         "es": "Jefe de backend y soporte en frontend en el desarrollo de una plataforma personalizada basada en OpenProject para la gestión administrativa de usuarios, proyectos, tareas e informes analíticos de rendimiento.",
         "en": "Backend lead and frontend contributor developing a customized OpenProject enterprise platform for managing users, projects, tasks, and analytical work visualizations."
       },
-      "technologies": ["Node.js", "Express.js", "OpenProject", "JavaScript", "Web Components", "REST API"]
+      "technologies": [
+        "Node.js",
+        "Express.js",
+        "OpenProject",
+        "JavaScript",
+        "Web Components",
+        "REST API"
+      ]
     },
     {
       "role": {
@@ -145,7 +197,14 @@
         "es": "Desarrollo de aplicaciones de Realidad Virtual y Mixta en Unity/C#: simulador clínico VR para entrenamiento del test APGAR en comadronas, museo virtual interactivo de Ramón y Cajal compatible con sala inmersiva CAVE 3D, y teclado virtual VR multilingüe (coreano, árabe, chino y latino).",
         "en": "Developed VR/MR applications in Unity/C#: clinical VR simulator for midwife APGAR training, interactive Ramón y Cajal virtual museum running in a 3D CAVE immersive room, and a multilingual VR virtual keyboard (Korean, Arabic, Chinese, and Latin scripts)."
       },
-      "technologies": ["Unity 3D", "C#", "OpenXR / MRTK", "CAVE 3D", "Realidad Virtual", "ShaderLab / HLSL"]
+      "technologies": [
+        "Unity 3D",
+        "C#",
+        "OpenXR / MRTK",
+        "CAVE 3D",
+        "Realidad Virtual",
+        "ShaderLab / HLSL"
+      ]
     },
     {
       "role": {
@@ -166,7 +225,13 @@
         "es": "Trayectoria continuada en servicios públicos y emergencias que ha forjado competencias transversales clave para la ingeniería: toma de decisiones críticas bajo presión, coordinación de equipos, trato directo con ciudadanía multilingüe y responsabilidad operativa.",
         "en": "Sustained public-service and emergency response track record that forged essential engineering soft skills: critical decision-making under pressure, team coordination, multilingual public service, and operational accountability."
       },
-      "technologies": ["Gestión bajo presión", "Trabajo en equipo", "Atención al público", "Primeros auxilios", "Resolución de incidencias"]
+      "technologies": [
+        "Gestión bajo presión",
+        "Trabajo en equipo",
+        "Atención al público",
+        "Primeros auxilios",
+        "Resolución de incidencias"
+      ]
     }
   ],
   "education": [
@@ -302,4 +367,3 @@
     }
   ]
 }
-

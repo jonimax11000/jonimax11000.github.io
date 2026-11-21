@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-11-13T18:00:00Z",
-  "excludedRepos": ["practicas", "certificados", "Portfolio", "jonimax11000", "jonimax11000.github.io"],
-  "featuredOrder": ["jarvis", "EviroCero", "Teclado"],
+  "lastUpdated": "2026-11-21T11:40:23Z",
+  "excludedRepos": [
+    "Portfolio",
+    "practicas",
+    "jonimax11000.github.io",
+    "jonimax11000",
+    "certificados"
+  ],
+  "featuredOrder": [
+    "jarvis",
+    "EviroCero",
+    "Teclado"
+  ],
   "projects": [
     {
       "id": "jarvis",
@@ -12,8 +22,14 @@
       "url": "",
       "demoUrl": "",
       "category": "AI & Autonomous Agents",
-      "updatedAt": "2026-11-13",
-      "languages": ["Python", "Shell", "Dockerfile", "HTML"],
+      "updatedAt": "2026-10-26",
+      "languages": [
+        "Python",
+        "Shell",
+        "Dockerfile",
+        "HTML",
+        "VBScript"
+      ],
       "technologies": [
         "Ollama (DeepSeek-R1 / Qwen3)",
         "Model Context Protocol (MCP)",
@@ -24,7 +40,10 @@
         "Docker",
         "Spec-Driven Development (Gherkin)"
       ],
-      "branches": ["main", "feature/jonathan"],
+      "branches": [
+        "feature/jonathan",
+        "main"
+      ],
       "summary": {
         "es": "Asistente personal e ingeniero de software autónomo 100% local con arquitectura híbrida desacoplada. Integra enrutamiento inteligente multi-modelo con gestión dinámica de VRAM, orquestador SDD (Gherkin + auto-curación de sprints), clientes MCP, automatización web con Playwright (LinkedIn/CV/Portfolio), auditoría de ciberseguridad y memoria cifrada AES.",
         "en": "100% local autonomous AI personal assistant and software engineer built on a decoupled hybrid architecture. Features multi-model LLM routing with dynamic VRAM management, an SDD orchestrator (Gherkin + sprint self-healing), MCP clients, Playwright web automation (LinkedIn/CV/Portfolio), security auditing, and AES-encrypted memory."
@@ -51,8 +70,26 @@
       "url": "",
       "demoUrl": "https://global-byte.net/",
       "category": "Full-Stack & Enterprise ERP",
-      "updatedAt": "2026-10-28",
-      "languages": ["Python", "Dart", "Java", "TypeScript", "JavaScript", "Shell", "Dockerfile"],
+      "updatedAt": "2026-11-18",
+      "languages": [
+        "Python",
+        "Dart",
+        "Java",
+        "TypeScript",
+        "JavaScript",
+        "Shell",
+        "Dockerfile",
+        "C++",
+        "CMake",
+        "CSS",
+        "HTML",
+        "Batchfile",
+        "Swift",
+        "C",
+        "PowerShell",
+        "Kotlin",
+        "Objective-C"
+      ],
       "technologies": [
         "Odoo ERP",
         "Flutter",
@@ -63,7 +100,15 @@
         "Docker Compose",
         "Nginx"
       ],
-      "branches": ["main", "Developing", "Odoo", "servidor-de-rutas", "Jonathan", "Documentación"],
+      "branches": [
+        "01_Developing_respaldo",
+        "Developing",
+        "Documentación",
+        "Jonathan",
+        "Odoo",
+        "main",
+        "servidor-de-rutas"
+      ],
       "summary": {
         "es": "Plataforma integral para la navegación inteligente en Zonas de Bajas Emisiones (ZBE), consulta de distintivos ambientales DGT, alertas en tiempo real y cálculo de rutas ecológicas dinámicas. Combina una app móvil multiplataforma en Flutter con microservicios en Spring Boot y Node.js, motor cartográfico GraphHopper/Photon y backend empresarial en Odoo ERP con alta disponibilidad.",
         "en": "Comprehensive platform for smart navigation across Low Emission Zones (LEZ/ZBE), environmental vehicle badge verification, real-time alerts, and dynamic eco-routing. Combines a cross-platform Flutter mobile app with Spring Boot & Node.js microservices, GraphHopper/Photon routing engine, and a high-availability Odoo ERP backend."
@@ -90,8 +135,13 @@
       "url": "https://github.com/jonimax11000/Teclado",
       "demoUrl": "",
       "category": "Virtual Reality & XR",
-      "updatedAt": "2026-05-15",
-      "languages": ["C#", "ShaderLab", "HLSL"],
+      "updatedAt": "2026-11-18",
+      "languages": [
+        "C#",
+        "ShaderLab",
+        "HLSL",
+        "Shell"
+      ],
       "technologies": [
         "Unity 3D",
         "OpenXR & XR Interaction Toolkit",
@@ -99,7 +149,11 @@
         "TextMesh Pro",
         "Algoritmos Unicode (Hangul / Árabe / Pinyin)"
       ],
-      "branches": ["main"],
+      "branches": [
+        "feature/reestructuracion",
+        "feature/teclado-arabe",
+        "main"
+      ],
       "summary": {
         "es": "Teclado virtual 3D para Realidad Virtual y Mixta (Trabajo Final de Grado en Ingeniería Multimedia) desarrollado en Unity y C# con motores propios de composición silábica y contextual en tiempo real. Soporta escritura en alfabeto coreano (composición matemática de bloques silábicos Hangul Unicode 0xAC00), árabe (formas contextuales aislada, inicial, media y final + ligaduras y renderizado RTL), chino (base de datos Pinyin) y diacríticos latinos.",
         "en": "3D Virtual & Mixed Reality keyboard (Multimedia Engineering Bachelor's Thesis / TFG) built in Unity and C# featuring custom real-time syllabic and contextual script composition engines. Supports Korean (mathematical Hangul Unicode 0xAC00 jamo block synthesis), Arabic (isolated, initial, medial, and final contextual glyph forms + ligatures and RTL rendering), Chinese (Pinyin database), and Latin diacritics."
@@ -126,8 +180,13 @@
       "url": "https://github.com/jonimax11000/Odoo",
       "demoUrl": "",
       "category": "Full-Stack & Enterprise ERP",
-      "updatedAt": "2026-06-20",
-      "languages": ["Python", "XML", "JavaScript", "CSS"],
+      "updatedAt": "2026-05-22",
+      "languages": [
+        "Python",
+        "XML",
+        "JavaScript",
+        "CSS"
+      ],
       "technologies": [
         "Odoo 19.0",
         "PostgreSQL",
@@ -137,7 +196,13 @@
         "MRP & HR Planning",
         "IA Local / Forecasting"
       ],
-      "branches": ["cookast_19.0", "cookast_ai_19.0", "cookast_weather_19.0", "shift_planner_19.0", "main"],
+      "branches": [
+        "cookast_ai_19.0",
+        "cookast_weather_19.0",
+        "cookast_19.0",
+        "main",
+        "shift_planner_19.0"
+      ],
       "summary": {
         "es": "Repositorio multi-rama donde cada rama aloja un módulo especializado para Odoo 19.0: `cookast_19.0` (gestión integral de hostelería: previsiones, compras, escandallos MRP, TPV y personal), `cookast_ai_19.0` (IA local para predicción de demanda, recomendación de precios, chat asistido y alertas de anomalías de foodcost), `cookast_weather_19.0` (pronóstico meteorológico) y `shift_planner_19.0` (planificador avanzado de turnos RRHH con asignación automática por aptitudes).",
         "en": "Multi-branch repository where each branch hosts a specialized Odoo 19.0 module: `cookast_19.0` (foodservice operations: forecasting, purchasing, MRP BOM, POS & staffing), `cookast_ai_19.0` (local AI for demand forecasting, price recommendation, AI chat & food-cost anomaly alerts), `cookast_weather_19.0` (weather correlation), and `shift_planner_19.0` (HR shift planner with skill-based auto-assignment wizard)."
@@ -164,8 +229,11 @@
       "url": "",
       "demoUrl": "",
       "category": "Data Science & Machine Learning",
-      "updatedAt": "2026-10-15",
-      "languages": ["Python", "Jupyter Notebook"],
+      "updatedAt": "2026-11-20",
+      "languages": [
+        "Python",
+        "Jupyter Notebook"
+      ],
       "technologies": [
         "Pandas",
         "Scikit-Learn",
@@ -174,7 +242,14 @@
         "Series Temporales",
         "Clustering / Segmentación"
       ],
-      "branches": ["main", "S3", "S4", "S5", "S6", "docs_Jonathan"],
+      "branches": [
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "docs_Jonathan",
+        "main"
+      ],
       "summary": {
         "es": "Proyecto de ciencia de datos y aprendizaje automático para el análisis y predicción comercial de BiciTierra Market. Incluye análisis exploratorio de datos (EDA), detección de estacionalidad y roturas de stock, modelos predictivos con Scikit-Learn, segmentación de clientes por clustering y exportación de series temporales para cuadros de mando en Power BI.",
         "en": "Data science and machine learning project for commercial analytics and sales forecasting at BiciTierra Market. Covers exploratory data analysis (EDA), seasonality and stockout detection, Scikit-Learn predictive modeling, customer clustering segmentation, and time-series exports for Power BI dashboards."
@@ -199,8 +274,25 @@
       "url": "https://github.com/jonimax11000/ProjecteIntermodular",
       "demoUrl": "",
       "category": "Full-Stack & Microservices",
-      "updatedAt": "2026-05-28",
-      "languages": ["Dart", "Java", "Vue", "Python", "TypeScript", "JavaScript", "HTML", "CSS", "Dockerfile"],
+      "updatedAt": "2026-02-18",
+      "languages": [
+        "Dart",
+        "Java",
+        "Vue",
+        "Python",
+        "TypeScript",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Dockerfile",
+        "Objective-C",
+        "Shell",
+        "CMake",
+        "C++",
+        "Swift",
+        "Kotlin",
+        "C"
+      ],
       "technologies": [
         "Flutter",
         "Spring Boot",
@@ -209,7 +301,12 @@
         "JWT / RSA Auth",
         "Arquitectura C4"
       ],
-      "branches": ["main", "Sprint1", "Sprint2", "Sprint3"],
+      "branches": [
+        "Sprint1",
+        "Sprint2",
+        "Sprint3",
+        "main"
+      ],
       "summary": {
         "es": "Plataforma completa de streaming de vídeo ('JustFlix') diseñada bajo una arquitectura de microservicios moderna. Integra aplicación móvil multiplataforma en Flutter para usuarios finales, panel de administración web en Vue.js, servicios backend con autenticación asimétrica y despliegue contenedorizado con Docker.",
         "en": "Full-featured video streaming platform ('JustFlix') engineered with a modern microservices architecture. Combines a cross-platform Flutter mobile client for end users, a Vue.js web administration portal, backend services with asymmetric authentication, and Dockerized deployment."
@@ -234,8 +331,10 @@
       "url": "https://github.com/jonimax11000/Arkanoid-Python-Niveles",
       "demoUrl": "",
       "category": "Game Dev & Interactive",
-      "updatedAt": "2026-09-10",
-      "languages": ["Python"],
+      "updatedAt": "2026-11-05",
+      "languages": [
+        "Python"
+      ],
       "technologies": [
         "Python",
         "Pygame",
@@ -243,7 +342,9 @@
         "Pytest",
         "CI/CD GitHub Actions"
       ],
-      "branches": ["main"],
+      "branches": [
+        "main"
+      ],
       "summary": {
         "es": "Videojuego arcade inspirado en Arkanoid desarrollado en Python con generación procedural infinita de niveles, sistema de vidas, puntuaciones, power-ups temporales y permanentes, estética retro neón y HUD de estado en tiempo real con suite de tests automatizados.",
         "en": "Arcade game inspired by Arkanoid built in Python featuring infinite procedural level generation, lives and scoring systems, temporary and permanent power-ups, retro neon visuals, a live HUD, and an automated test suite."
@@ -268,8 +369,12 @@
       "url": "https://github.com/jonimax11000/autis",
       "demoUrl": "",
       "category": "Full-Stack & Enterprise ERP",
-      "updatedAt": "2025-06-25",
-      "languages": ["JavaScript", "HTML", "CSS"],
+      "updatedAt": "2025-06-13",
+      "languages": [
+        "JavaScript",
+        "HTML",
+        "CSS"
+      ],
       "technologies": [
         "Node.js",
         "Express.js",
@@ -277,7 +382,12 @@
         "Web Components",
         "REST API"
       ],
-      "branches": ["main", "main-ramaTrabajo", "main-ramaTrabajo-J", "main-ramaTrabajo-R"],
+      "branches": [
+        "main",
+        "main-ramaTrabajo",
+        "main-ramaTrabajo-J",
+        "main-ramaTrabajo-R"
+      ],
       "summary": {
         "es": "Software empresarial desarrollado para AUTIS INGENIEROS utilizando OpenProject como base. Proporciona gestión administrativa avanzada de usuarios, proyectos y tareas, junto con paneles de visualización analítica del progreso y los trabajos realizados (Rol: Jefe de Backend y Full-Stack).",
         "en": "Enterprise project management software built for AUTIS INGENIEROS on top of OpenProject. Provides administrative user, project, and task management alongside analytical dashboards tracking work completion (Role: Backend Lead & Full-Stack Developer)."
@@ -302,8 +412,16 @@
       "url": "",
       "demoUrl": "",
       "category": "Virtual Reality & XR",
-      "updatedAt": "2024-09-12",
-      "languages": ["C#", "C++", "C", "ShaderLab", "HLSL", "TeX"],
+      "updatedAt": "2025-06-23",
+      "languages": [
+        "C#",
+        "C++",
+        "C",
+        "ShaderLab",
+        "HLSL",
+        "TeX",
+        "ASP.NET"
+      ],
       "technologies": [
         "Unity 3D",
         "C#",
@@ -311,7 +429,9 @@
         "LaTeX (Memoria Técnica)",
         "Evaluación de Usabilidad"
       ],
-      "branches": ["main"],
+      "branches": [
+        "main"
+      ],
       "summary": {
         "es": "Proyecto de Trabajo Final de Grado centrado en el desarrollo de un entorno interactivo 3D/VR en Unity con programación en C# y shaders personalizados, acompañado de su planificación de costes, pruebas con usuarios, cuestionarios de usabilidad y memoria técnica en LaTeX.",
         "en": "Capstone thesis project focused on building an interactive 3D/VR environment in Unity using C# and custom shaders, complete with project cost planning, user testing, usability questionnaires, and a LaTeX technical dissertation."
@@ -336,8 +456,14 @@
       "url": "",
       "demoUrl": "",
       "category": "Full-Stack & Microservices",
-      "updatedAt": "2025-05-18",
-      "languages": ["JavaScript", "HTML", "CSS", "SQL", "Dockerfile"],
+      "updatedAt": "2025-11-05",
+      "languages": [
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "SQL",
+        "Dockerfile"
+      ],
       "technologies": [
         "Node.js",
         "SQL / Base de Datos Relacional",
@@ -345,7 +471,12 @@
         "JavaScript POO",
         "Frontend Web"
       ],
-      "branches": ["main", "BackEnd", "BaseDatos", "POO"],
+      "branches": [
+        "BackEnd",
+        "BaseDatos",
+        "POO",
+        "main"
+      ],
       "summary": {
         "es": "Aplicación full-stack contenedorizada para la gestión de bibliotecas (socios, libros, películas, revistas y préstamos). Estructurada por capas en ramas dedicadas para el modelo de dominio en POO, esquema relacional SQL en Docker, servidor backend en Node.js y cliente web.",
         "en": "Containerized full-stack library management system (members, books, movies, magazines, and loans). Organized across dedicated branches covering the OOP domain model, Dockerized SQL database schema, Node.js backend server, and web frontend."
@@ -370,8 +501,12 @@
       "url": "https://github.com/jonimax11000/ServidorFlutter",
       "demoUrl": "",
       "category": "Mobile & Multiplatform",
-      "updatedAt": "2025-11-20",
-      "languages": ["Dart", "TypeScript", "HTML"],
+      "updatedAt": "2025-10-20",
+      "languages": [
+        "Dart",
+        "TypeScript",
+        "HTML"
+      ],
       "technologies": [
         "Flutter",
         "Dart",
@@ -379,7 +514,9 @@
         "TypeScript",
         "REST API"
       ],
-      "branches": ["main"],
+      "branches": [
+        "main"
+      ],
       "summary": {
         "es": "Arquitectura cliente-servidor que conecta una interfaz multiplataforma desarrollada en Flutter (`interfaz_flutter`) con un servidor backend tipado en TypeScript y Express (`projecte-express2`) para el consumo reactivo de servicios REST.",
         "en": "Client-server architecture pairing a cross-platform Flutter application (`interfaz_flutter`) with a typed TypeScript & Express backend (`projecte-express2`) for reactive REST service consumption."
@@ -402,15 +539,21 @@
       "url": "",
       "demoUrl": "",
       "category": "Game Dev & Interactive",
-      "updatedAt": "2024-06-10",
-      "languages": ["C#", "ShaderLab", "HLSL"],
+      "updatedAt": "2022-11-16",
+      "languages": [
+        "C#",
+        "ShaderLab",
+        "HLSL"
+      ],
       "technologies": [
         "Unity 3D",
         "C#",
         "ShaderLab / HLSL",
         "Físicas y Mecánicas 3D"
       ],
-      "branches": ["main"],
+      "branches": [
+        "main"
+      ],
       "summary": {
         "es": "Repositorio privado con prototipos, mecánicas jugables, programación de shaders (HLSL/ShaderLab) y sistemas auxiliares en Unity 3D desarrollados para los laboratorios de Diseño de Videojuegos.",
         "en": "Private repository containing game prototypes, gameplay mechanics, custom shader programming (HLSL/ShaderLab), and Unity 3D auxiliary systems built for Game Design laboratories."
@@ -433,15 +576,19 @@
       "url": "",
       "demoUrl": "",
       "category": "AI & Autonomous Agents",
-      "updatedAt": "2025-08-14",
-      "languages": ["Python"],
+      "updatedAt": "2025-05-25",
+      "languages": [
+        "Python"
+      ],
       "technologies": [
         "Python",
         "Web Scraping",
         "Automatización HTTP",
         "Alertas"
       ],
-      "branches": ["main"],
+      "branches": [
+        "main"
+      ],
       "summary": {
         "es": "Colección privada de bots y scripts de automatización personal en Python para el seguimiento automatizado de precios, disponibilidad de productos en e-commerce (como MyProtein) y tareas programadas.",
         "en": "Private collection of Python automation bots and scripts for automated price tracking, e-commerce stock monitoring (such as MyProtein), and scheduled utilities."
@@ -464,15 +611,19 @@
       "url": "https://github.com/jonimax11000/EAsports",
       "demoUrl": "",
       "category": "Software Engineering & OOP",
-      "updatedAt": "2025-04-12",
-      "languages": ["Java"],
+      "updatedAt": "2025-02-04",
+      "languages": [
+        "Java"
+      ],
       "technologies": [
         "Java",
         "Programación Orientada a Objetos",
         "Visual Paradigm (UML)",
         "Arquitectura de Dominio"
       ],
-      "branches": ["main"],
+      "branches": [
+        "main"
+      ],
       "summary": {
         "es": "Aplicación en Java orientada al modelado y gestión de ligas y torneos de deportes electrónicos (eSports). Incluye el diseño completo de ingeniería en UML (Visual Paradigm) y su implementación modular en Java.",
         "en": "Java application designed to model and manage eSports leagues and tournaments. Includes complete UML software engineering diagrams (Visual Paradigm) and a modular Java implementation."
@@ -495,15 +646,21 @@
       "url": "https://github.com/jonimax11000/pizzeria2",
       "demoUrl": "",
       "category": "Web & Frontend",
-      "updatedAt": "2025-03-19",
-      "languages": ["JavaScript", "HTML", "CSS"],
+      "updatedAt": "2025-02-23",
+      "languages": [
+        "JavaScript",
+        "HTML",
+        "CSS"
+      ],
       "technologies": [
         "Web Components",
         "JavaScript ES6+",
         "HTML5 Semántico",
         "CSS3"
       ],
-      "branches": ["main"],
+      "branches": [
+        "main"
+      ],
       "summary": {
         "es": "Aplicación web de carta digital interactiva para una pizzería construida utilizando el estándar nativo de Web Components y JavaScript modular sin dependencia de frameworks externos.",
         "en": "Interactive digital menu web application for a pizzeria built with native Web Components and modular ES6+ JavaScript without external framework dependencies."
@@ -526,15 +683,22 @@
       "url": "https://github.com/jonimax11000/tasques_LMI_EDD",
       "demoUrl": "",
       "category": "Web & Frontend",
-      "updatedAt": "2025-02-28",
-      "languages": ["HTML", "JavaScript", "CSS"],
+      "updatedAt": "2024-12-09",
+      "languages": [
+        "HTML",
+        "JavaScript",
+        "CSS"
+      ],
       "technologies": [
         "MkDocs",
         "Markdown",
         "GitHub Pages",
         "Documentación Técnica"
       ],
-      "branches": ["main", "gh-pages"],
+      "branches": [
+        "gh-pages",
+        "main"
+      ],
       "summary": {
         "es": "Sitio estático de documentación técnica generado con MkDocs y desplegado en GitHub Pages (`gh-pages`) para la organización estructurada de prácticas de Lenguajes de Marcas y Entornos de Desarrollo.",
         "en": "Static technical documentation portal built with MkDocs and deployed on GitHub Pages (`gh-pages`) for structured Markup Languages and Development Environments coursework."
@@ -557,15 +721,19 @@
       "url": "https://github.com/jonimax11000/Memoria",
       "demoUrl": "",
       "category": "Software Engineering & OOP",
-      "updatedAt": "2024-07-05",
-      "languages": ["TeX"],
+      "updatedAt": "2025-06-23",
+      "languages": [
+        "TeX"
+      ],
       "technologies": [
         "LaTeX / TeX",
         "Visual Paradigm (UML)",
         "Métricas de Usabilidad",
         "Documentación Académica"
       ],
-      "branches": ["main"],
+      "branches": [
+        "main"
+      ],
       "summary": {
         "es": "Repositorio de composición tipográfica en LaTeX, modelado arquitectónico en Visual Paradigm y hojas de evaluación estadística de usabilidad para memorias de ingeniería de software.",
         "en": "LaTeX typesetting repository, Visual Paradigm architectural models, and statistical usability evaluation sheets for software engineering dissertations."
@@ -588,15 +756,21 @@
       "url": "https://github.com/jonimax11000/EjerciciosLMI",
       "demoUrl": "",
       "category": "Web & Frontend",
-      "updatedAt": "2025-02-10",
-      "languages": ["HTML", "JavaScript", "CSS"],
+      "updatedAt": "2024-12-08",
+      "languages": [
+        "HTML",
+        "JavaScript",
+        "CSS"
+      ],
       "technologies": [
         "HTML5",
         "CSS3",
         "JavaScript DOM",
         "Maquetación Web"
       ],
-      "branches": ["main"],
+      "branches": [
+        "main"
+      ],
       "summary": {
         "es": "Conjunto de implementaciones prácticas sobre estándares web, maquetación semántica en HTML5/CSS3 y programación interactiva del DOM con JavaScript.",
         "en": "Collection of hands-on implementations covering web standards, semantic HTML5/CSS3 layout, and interactive JavaScript DOM programming."
@@ -619,15 +793,19 @@
       "url": "https://github.com/jonimax11000/tutorialGITJordi",
       "demoUrl": "",
       "category": "Software Engineering & OOP",
-      "updatedAt": "2024-11-15",
-      "languages": ["Markdown"],
+      "updatedAt": "2025-04-03",
+      "languages": [
+        "Markdown"
+      ],
       "technologies": [
         "Git",
         "GitHub",
         "Gestión de Ramas",
         "Documentación"
       ],
-      "branches": ["main"],
+      "branches": [
+        "main"
+      ],
       "summary": {
         "es": "Manual técnico de referencia rápida para desarrolladores sobre comandos esenciales de Git, gestión de ramas (`branch`, `switch`, `checkout`), resolución de conflictos e inspección de grafos de historial.",
         "en": "Quick-reference technical handbook for developers covering essential Git commands, branch management (`branch`, `switch`, `checkout`), conflict resolution, and commit graph inspection."
@@ -643,4 +821,3 @@
     }
   ]
 }
-
